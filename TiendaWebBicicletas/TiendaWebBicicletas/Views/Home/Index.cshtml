@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutTienda.cshtml";
+    ViewBag.Title = "Home Page";
+    bool status = (bool)ViewBag.Script;
+}
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+@if (status == true)
+{
+    <script>
+        Swal.fire(
+            'Compra Exitosa!',
+            'Click en el boton para continuar',
+            'success'
+        )
+    </script>
+}

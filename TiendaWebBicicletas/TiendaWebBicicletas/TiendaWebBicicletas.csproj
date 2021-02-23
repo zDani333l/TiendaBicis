@@ -1,0 +1,1193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A500006D-0C82-4F2B-9390-0D8672DD876B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TiendaWebBicicletas</RootNamespace>
+    <AssemblyName>TiendaWebBicicletas</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44382</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="ReportViewerForMvc, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ReportViewerForMvc14.140.1000.523\lib\net45\ReportViewerForMvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>packages\Microsoft.Owin.Security.Facebook.4.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>packages\Microsoft.Owin.Security.Google.4.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>packages\Microsoft.Owin.Security.Twitter.4.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>packages\Microsoft.Owin.Security.OAuth.4.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ControlesAdmin\AdministradorController.cs" />
+    <Compile Include="Controllers\CompraController.cs" />
+    <Compile Include="Controllers\ControlesAdmin\CRUDCategoriaController.cs" />
+    <Compile Include="Controllers\ControlesAdmin\CRUDProveedorController.cs" />
+    <Compile Include="Controllers\ControlesAdmin\CRUDRolesController.cs" />
+    <Compile Include="Controllers\ControlesAdmin\CRUDSubCategoriaController.cs" />
+    <Compile Include="Controllers\ControlesAdmin\CRUDUsuariosController.cs" />
+    <Compile Include="Controllers\ControlesAdmin\EliminarEditarDetalleCompraController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ControlesAdmin\CRUDProductoController.cs" />
+    <Compile Include="DAL\AspNetRoles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\AspNetUserClaims.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\AspNetUserLogins.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\AspNetUsers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\C__MigrationHistory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\GetBySearch_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Tbl_Carro.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Tbl_CarroProducto.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Tbl_Categoria.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Tbl_DetalleCompra.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Tbl_imagen.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Tbl_OrdenStatus.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Tbl_Producto.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Tbl_Proveedor.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Tbl_SubCategoria.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Articulo.cs" />
+    <Compile Include="Models\CheckoutViewModels.cs" />
+    <Compile Include="Models\DetalleProductoViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ModelsCRUD\ProductoViewModels.cs" />
+    <Compile Include="Models\PaginadorGenerico.cs" />
+    <Compile Include="Models\StockViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\MyDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\MyDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\MyDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\MyDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\GenericRepository.cs" />
+    <Compile Include="Repository\GenericUnitOfWork.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\AvatarAdmin.png" />
+    <Content Include="Admin\css\app.css" />
+    <Content Include="Admin\fonts\fa-brands-400.svg" />
+    <Content Include="Admin\fonts\fa-regular-400.svg" />
+    <Content Include="Admin\fonts\fa-solid-900.svg" />
+    <Content Include="Admin\img\avatars\avatar-2.jpg" />
+    <Content Include="Admin\img\avatars\avatar-3.jpg" />
+    <Content Include="Admin\img\avatars\avatar-4.jpg" />
+    <Content Include="Admin\img\avatars\avatar-5.jpg" />
+    <Content Include="Admin\img\avatars\avatar.jpg" />
+    <Content Include="Admin\img\icons\icon-48x48.png" />
+    <Content Include="Admin\img\photos\unsplash-1.jpg" />
+    <Content Include="Admin\img\photos\unsplash-2.jpg" />
+    <Content Include="Admin\img\photos\unsplash-3.jpg" />
+    <Content Include="Admin\img\screenshot.png" />
+    <Content Include="Admin\js\app.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="DAL\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DAL\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="ReportViewerWebForm.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Admin\fonts\fa-brands-400.eot" />
+    <Content Include="Admin\fonts\fa-brands-400.ttf" />
+    <Content Include="Admin\fonts\fa-brands-400.woff" />
+    <Content Include="Admin\fonts\fa-brands-400.woff2" />
+    <Content Include="Admin\fonts\fa-regular-400.eot" />
+    <Content Include="Admin\fonts\fa-regular-400.ttf" />
+    <Content Include="Admin\fonts\fa-regular-400.woff" />
+    <Content Include="Admin\fonts\fa-regular-400.woff2" />
+    <Content Include="Admin\fonts\fa-solid-900.eot" />
+    <Content Include="Admin\fonts\fa-solid-900.ttf" />
+    <Content Include="Admin\fonts\fa-solid-900.woff" />
+    <Content Include="Admin\fonts\fa-solid-900.woff2" />
+    <Content Include="Admin\fonts\Inter-Black.woff" />
+    <Content Include="Admin\fonts\Inter-Black.woff2" />
+    <Content Include="Admin\fonts\Inter-BlackItalic.woff" />
+    <Content Include="Admin\fonts\Inter-BlackItalic.woff2" />
+    <Content Include="Admin\fonts\Inter-Bold.woff" />
+    <Content Include="Admin\fonts\Inter-Bold.woff2" />
+    <Content Include="Admin\fonts\Inter-BoldItalic.woff" />
+    <Content Include="Admin\fonts\Inter-BoldItalic.woff2" />
+    <Content Include="Admin\fonts\Inter-ExtraBold.woff" />
+    <Content Include="Admin\fonts\Inter-ExtraBold.woff2" />
+    <Content Include="Admin\fonts\Inter-ExtraBoldItalic.woff" />
+    <Content Include="Admin\fonts\Inter-ExtraBoldItalic.woff2" />
+    <Content Include="Admin\fonts\Inter-ExtraLight-BETA.woff" />
+    <Content Include="Admin\fonts\Inter-ExtraLight-BETA.woff2" />
+    <Content Include="Admin\fonts\Inter-ExtraLightItalic-BETA.woff" />
+    <Content Include="Admin\fonts\Inter-ExtraLightItalic-BETA.woff2" />
+    <Content Include="Admin\fonts\Inter-italic.var.woff2" />
+    <Content Include="Admin\fonts\Inter-Italic.woff" />
+    <Content Include="Admin\fonts\Inter-Italic.woff2" />
+    <Content Include="Admin\fonts\Inter-Light-BETA.woff" />
+    <Content Include="Admin\fonts\Inter-Light-BETA.woff2" />
+    <Content Include="Admin\fonts\Inter-LightItalic-BETA.woff" />
+    <Content Include="Admin\fonts\Inter-LightItalic-BETA.woff2" />
+    <Content Include="Admin\fonts\Inter-Medium.woff" />
+    <Content Include="Admin\fonts\Inter-Medium.woff2" />
+    <Content Include="Admin\fonts\Inter-MediumItalic.woff" />
+    <Content Include="Admin\fonts\Inter-MediumItalic.woff2" />
+    <Content Include="Admin\fonts\Inter-Regular.woff" />
+    <Content Include="Admin\fonts\Inter-Regular.woff2" />
+    <Content Include="Admin\fonts\Inter-SemiBold.woff" />
+    <Content Include="Admin\fonts\Inter-SemiBold.woff2" />
+    <Content Include="Admin\fonts\Inter-SemiBoldItalic.woff" />
+    <Content Include="Admin\fonts\Inter-SemiBoldItalic.woff2" />
+    <Content Include="Admin\fonts\Inter-Thin-BETA.woff" />
+    <Content Include="Admin\fonts\Inter-Thin-BETA.woff2" />
+    <Content Include="Admin\fonts\Inter-ThinItalic-BETA.woff" />
+    <Content Include="Admin\fonts\Inter-ThinItalic-BETA.woff2" />
+    <Content Include="Admin\fonts\Inter-upright.var.woff2" />
+    <Content Include="Admin\fonts\Inter.var.woff2" />
+    <Content Include="Admin\js\app.js.LICENSE" />
+    <Content Include="Admin\js\app.js.map" />
+    <EntityDeploy Include="DAL\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DAL\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Reportes\MyDataSet.xsc">
+      <DependentUpon>MyDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\MyDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MyDataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reportes\MyDataSet.xss">
+      <DependentUpon>MyDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reportes\MyDataSet2.xsc">
+      <DependentUpon>MyDataSet2.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\MyDataSet2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MyDataSet2.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reportes\MyDataSet2.xss">
+      <DependentUpon>MyDataSet2.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reportes\MyDataSet3.xsc">
+      <DependentUpon>MyDataSet3.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\MyDataSet3.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MyDataSet3.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reportes\MyDataSet3.xss">
+      <DependentUpon>MyDataSet3.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reportes\MyDataSet4.xsc">
+      <DependentUpon>MyDataSet4.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\MyDataSet4.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MyDataSet4.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reportes\MyDataSet4.xss">
+      <DependentUpon>MyDataSet4.xsd</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tienda\css\style.css" />
+    <Content Include="Tienda\images\access\1.jpg" />
+    <Content Include="Tienda\images\access\2.jpg" />
+    <Content Include="Tienda\images\access\3.jpg" />
+    <Content Include="Tienda\images\access\4.jpg" />
+    <Content Include="Tienda\images\access\5.jpg" />
+    <Content Include="Tienda\images\access\6.jpg" />
+    <Content Include="Tienda\images\access\7.jpg" />
+    <Content Include="Tienda\images\access\8.jpg" />
+    <Content Include="Tienda\images\access\9.jpg" />
+    <Content Include="Tienda\images\background\1.jpg" />
+    <Content Include="Tienda\images\background\2.jpg" />
+    <Content Include="Tienda\images\background\404.jpg" />
+    <Content Include="Tienda\images\background\banner-1.jpg" />
+    <Content Include="Tienda\images\background\Banner.jpg" />
+    <Content Include="Tienda\images\background\home-banner-1.jpg" />
+    <Content Include="Tienda\images\background\home-banner-2.jpg" />
+    <Content Include="Tienda\images\background\parallax.jpg" />
+    <Content Include="Tienda\images\banner\banner-1.jpg" />
+    <Content Include="Tienda\images\banner\banner-2.jpg" />
+    <Content Include="Tienda\images\banner\Banner.jpg" />
+    <Content Include="Tienda\images\banner\home-banner-1.png" />
+    <Content Include="Tienda\images\banner\home-banner-2.png" />
+    <Content Include="Tienda\images\blog\1.jpg" />
+    <Content Include="Tienda\images\blog\10.jpg" />
+    <Content Include="Tienda\images\blog\11.jpg" />
+    <Content Include="Tienda\images\blog\2.jpg" />
+    <Content Include="Tienda\images\blog\3.jpg" />
+    <Content Include="Tienda\images\blog\4.jpg" />
+    <Content Include="Tienda\images\blog\5.jpg" />
+    <Content Include="Tienda\images\blog\6.jpg" />
+    <Content Include="Tienda\images\blog\7.jpg" />
+    <Content Include="Tienda\images\blog\8.jpg" />
+    <Content Include="Tienda\images\blog\9.jpg" />
+    <Content Include="Tienda\images\blog\sidebar\1.jpg" />
+    <Content Include="Tienda\images\blog\sidebar\2.jpg" />
+    <Content Include="Tienda\images\blog\sidebar\3.jpg" />
+    <Content Include="Tienda\images\blog\sidebar\4.jpg" />
+    <Content Include="Tienda\images\cart-preview\1.jpg" />
+    <Content Include="Tienda\images\cart-preview\2.jpg" />
+    <Content Include="Tienda\images\cart-preview\3.jpg" />
+    <Content Include="Tienda\images\clothes\1.jpg" />
+    <Content Include="Tienda\images\clothes\10.jpg" />
+    <Content Include="Tienda\images\clothes\11.jpg" />
+    <Content Include="Tienda\images\clothes\12.jpg" />
+    <Content Include="Tienda\images\clothes\2.jpg" />
+    <Content Include="Tienda\images\clothes\3.jpg" />
+    <Content Include="Tienda\images\clothes\4.jpg" />
+    <Content Include="Tienda\images\clothes\5.jpg" />
+    <Content Include="Tienda\images\clothes\6.jpg" />
+    <Content Include="Tienda\images\clothes\7.jpg" />
+    <Content Include="Tienda\images\clothes\8.jpg" />
+    <Content Include="Tienda\images\clothes\9.jpg" />
+    <Content Include="Tienda\images\flag\china.svg" />
+    <Content Include="Tienda\images\flag\japan.svg" />
+    <Content Include="Tienda\images\flag\singapore.svg" />
+    <Content Include="Tienda\images\flag\usa.svg" />
+    <Content Include="Tienda\images\hot-deal.png" />
+    <Content Include="Tienda\images\logo-white.png" />
+    <Content Include="Tienda\images\logo-white\logo.png" />
+    <Content Include="Tienda\images\logo.png" />
+    <Content Include="Tienda\images\marker.png" />
+    <Content Include="Tienda\images\offer\banner-1.jpg" />
+    <Content Include="Tienda\images\offer\clothes-1.jpg" />
+    <Content Include="Tienda\images\offer\clothes-2.jpg" />
+    <Content Include="Tienda\images\offer\home-2-1.jpg" />
+    <Content Include="Tienda\images\offer\home-2-2.jpg" />
+    <Content Include="Tienda\images\offer\home-2-3.jpg" />
+    <Content Include="Tienda\images\offer\home-2-4.jpg" />
+    <Content Include="Tienda\images\offer\home-2-5.jpg" />
+    <Content Include="Tienda\images\offer\home-3-1.jpg" />
+    <Content Include="Tienda\images\offer\home-3-2.jpg" />
+    <Content Include="Tienda\images\offer\home-3-3.jpg" />
+    <Content Include="Tienda\images\offer\img.jpg" />
+    <Content Include="Tienda\images\offer\sidebar.jpg" />
+    <Content Include="Tienda\images\partner\1.png" />
+    <Content Include="Tienda\images\partner\2.png" />
+    <Content Include="Tienda\images\partner\3.png" />
+    <Content Include="Tienda\images\partner\4.png" />
+    <Content Include="Tienda\images\partner\5.png" />
+    <Content Include="Tienda\images\partner\6.png" />
+    <Content Include="Tienda\images\partner\7.png" />
+    <Content Include="Tienda\images\partner\8.png" />
+    <Content Include="Tienda\images\payment\01.png" />
+    <Content Include="Tienda\images\payment\1.png" />
+    <Content Include="Tienda\images\payment\2.png" />
+    <Content Include="Tienda\images\payment\3.png" />
+    <Content Include="Tienda\images\payment\4.png" />
+    <Content Include="Tienda\images\payment\5.png" />
+    <Content Include="Tienda\images\product\1.jpg" />
+    <Content Include="Tienda\images\product\2.jpg" />
+    <Content Include="Tienda\images\product\3.jpg" />
+    <Content Include="Tienda\images\product\4.jpg" />
+    <Content Include="Tienda\images\product\5.jpg" />
+    <Content Include="Tienda\images\product\cart-preview\1.jpg" />
+    <Content Include="Tienda\images\product\cart-preview\2.jpg" />
+    <Content Include="Tienda\images\product\cart-preview\3.jpg" />
+    <Content Include="Tienda\images\shoe-detail\1.jpg" />
+    <Content Include="Tienda\images\shoe-detail\2.jpg" />
+    <Content Include="Tienda\images\shoe-detail\3.jpg" />
+    <Content Include="Tienda\images\shoe\1.jpg" />
+    <Content Include="Tienda\images\shoe\10.jpg" />
+    <Content Include="Tienda\images\shoe\11.jpg" />
+    <Content Include="Tienda\images\shoe\12.jpg" />
+    <Content Include="Tienda\images\shoe\13.jpg" />
+    <Content Include="Tienda\images\shoe\14.jpg" />
+    <Content Include="Tienda\images\shoe\15.jpg" />
+    <Content Include="Tienda\images\shoe\16.jpg" />
+    <Content Include="Tienda\images\shoe\2.jpg" />
+    <Content Include="Tienda\images\shoe\3.jpg" />
+    <Content Include="Tienda\images\shoe\4.jpg" />
+    <Content Include="Tienda\images\shoe\5.jpg" />
+    <Content Include="Tienda\images\shoe\6.jpg" />
+    <Content Include="Tienda\images\shoe\7.jpg" />
+    <Content Include="Tienda\images\shoe\8.jpg" />
+    <Content Include="Tienda\images\shoe\9.jpg" />
+    <Content Include="Tienda\images\shoe\sidebar\1.jpg" />
+    <Content Include="Tienda\images\shoe\sidebar\2.jpg" />
+    <Content Include="Tienda\images\shoe\sidebar\3.jpg" />
+    <Content Include="Tienda\images\slider\1.jpg" />
+    <Content Include="Tienda\images\slider\2.jpg" />
+    <Content Include="Tienda\images\slider\3.jpg" />
+    <Content Include="Tienda\images\slider\slider.png" />
+    <Content Include="Tienda\images\team\1.png" />
+    <Content Include="Tienda\images\team\2.png" />
+    <Content Include="Tienda\images\team\3.png" />
+    <Content Include="Tienda\images\team\4.png" />
+    <Content Include="Tienda\images\testimonial\1.jpg" />
+    <Content Include="Tienda\images\testimonial\2.jpg" />
+    <Content Include="Tienda\images\testimonial\3.jpg" />
+    <Content Include="Tienda\images\testimonial\4.jpg" />
+    <Content Include="Tienda\images\testimonial\5.jpg" />
+    <Content Include="Tienda\images\user\1.jpg" />
+    <Content Include="Tienda\images\user\2.jpg" />
+    <Content Include="Tienda\images\user\3.jpg" />
+    <Content Include="Tienda\images\user\4.jpg" />
+    <Content Include="Tienda\images\user\5.jpg" />
+    <Content Include="Tienda\js\main.js" />
+    <Content Include="Tienda\js\shoe-variants.js" />
+    <Content Include="Tienda\logo.png" />
+    <Content Include="Tienda\plugins\animate.css\animate.min.css" />
+    <Content Include="Tienda\plugins\bootstrap-datetimepicker\build\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Tienda\plugins\bootstrap-datetimepicker\build\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Tienda\plugins\bootstrap-select\dist\css\bootstrap-select.min.css" />
+    <Content Include="Tienda\plugins\bootstrap-select\dist\js\bootstrap-select.min.js" />
+    <Content Include="Tienda\plugins\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="Tienda\plugins\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Tienda\plugins\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="Tienda\plugins\elevatezoom\images\large\image1.jpg" />
+    <Content Include="Tienda\plugins\elevatezoom\images\large\image2.jpg" />
+    <Content Include="Tienda\plugins\elevatezoom\images\large\image3.jpg" />
+    <Content Include="Tienda\plugins\elevatezoom\images\large\image4.jpg" />
+    <Content Include="Tienda\plugins\elevatezoom\images\small\image1.png" />
+    <Content Include="Tienda\plugins\elevatezoom\images\small\image2.png" />
+    <Content Include="Tienda\plugins\elevatezoom\images\small\image3.png" />
+    <Content Include="Tienda\plugins\elevatezoom\images\small\image4.png" />
+    <Content Include="Tienda\plugins\elevatezoom\images\thumb\image1.jpg" />
+    <Content Include="Tienda\plugins\elevatezoom\images\thumb\image2.jpg" />
+    <Content Include="Tienda\plugins\elevatezoom\images\thumb\image3.jpg" />
+    <Content Include="Tienda\plugins\elevatezoom\images\thumb\image4.jpg" />
+    <Content Include="Tienda\plugins\elevatezoom\images\window-positions.png" />
+    <Content Include="Tienda\plugins\elevatezoom\jquery.elevateZoom-3.0.8.min.js" />
+    <Content Include="Tienda\plugins\elevatezoom\jquery.elevatezoom.js" />
+    <Content Include="Tienda\plugins\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Tienda\plugins\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Tienda\plugins\gmap3.min.js" />
+    <Content Include="Tienda\plugins\imagesloaded.pkgd.js" />
+    <Content Include="Tienda\plugins\ionicons\css\ionicons.css" />
+    <Content Include="Tienda\plugins\ionicons\css\ionicons.min.css" />
+    <Content Include="Tienda\plugins\ionicons\fonts\ionicons.svg" />
+    <Content Include="Tienda\plugins\isotope.pkgd.min.js" />
+    <Content Include="Tienda\plugins\jquery-bar-rating\dist\jquery.barrating.min.js" />
+    <Content Include="Tienda\plugins\jquery-bar-rating\dist\themes\bars-1to10.css" />
+    <Content Include="Tienda\plugins\jquery-bar-rating\dist\themes\bars-horizontal.css" />
+    <Content Include="Tienda\plugins\jquery-bar-rating\dist\themes\bars-movie.css" />
+    <Content Include="Tienda\plugins\jquery-bar-rating\dist\themes\bars-pill.css" />
+    <Content Include="Tienda\plugins\jquery-bar-rating\dist\themes\bars-reversed.css" />
+    <Content Include="Tienda\plugins\jquery-bar-rating\dist\themes\bars-square.css" />
+    <Content Include="Tienda\plugins\jquery-bar-rating\dist\themes\bootstrap-stars.css" />
+    <Content Include="Tienda\plugins\jquery-bar-rating\dist\themes\css-stars.css" />
+    <Content Include="Tienda\plugins\jquery-bar-rating\dist\themes\fontawesome-stars-o.css" />
+    <Content Include="Tienda\plugins\jquery-bar-rating\dist\themes\fontawesome-stars.css" />
+    <Content Include="Tienda\plugins\jquery-ui\external\jquery\jquery.js" />
+    <Content Include="Tienda\plugins\jquery-ui\images\ui-icons_444444_256x240.png" />
+    <Content Include="Tienda\plugins\jquery-ui\images\ui-icons_555555_256x240.png" />
+    <Content Include="Tienda\plugins\jquery-ui\images\ui-icons_777620_256x240.png" />
+    <Content Include="Tienda\plugins\jquery-ui\images\ui-icons_777777_256x240.png" />
+    <Content Include="Tienda\plugins\jquery-ui\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Tienda\plugins\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Tienda\plugins\jquery-ui\jquery-ui.min.css" />
+    <Content Include="Tienda\plugins\jquery-ui\jquery-ui.min.js" />
+    <Content Include="Tienda\plugins\jquery.countTo.js" />
+    <Content Include="Tienda\plugins\jquery.matchHeight-min.js" />
+    <Content Include="Tienda\plugins\jquery.parallax-1.1.3.js" />
+    <Content Include="Tienda\plugins\jquery\dist\jquery.min.js" />
+    <Content Include="Tienda\plugins\Magnific-Popup\dist\jquery.magnific-popup.min.js" />
+    <Content Include="Tienda\plugins\Magnific-Popup\dist\magnific-popup.css" />
+    <Content Include="Tienda\plugins\masonry.pkgd.min.js" />
+    <Content Include="Tienda\plugins\overflow-text.js" />
+    <Content Include="Tienda\plugins\owl-carousel\assets\owl.carousel.css" />
+    <Content Include="Tienda\plugins\owl-carousel\owl.carousel.min.js" />
+    <Content Include="Tienda\plugins\plugin.css" />
+    <Content Include="Tienda\plugins\plugin.js" />
+    <Content Include="Tienda\plugins\ps-icon\demo-files\demo.css" />
+    <Content Include="Tienda\plugins\ps-icon\demo-files\demo.js" />
+    <Content Include="Tienda\plugins\ps-icon\demo.html" />
+    <Content Include="Tienda\plugins\ps-icon\fonts\ps-icon.svg" />
+    <Content Include="Tienda\plugins\ps-icon\Read Me.txt" />
+    <Content Include="Tienda\plugins\ps-icon\style.css" />
+    <Content Include="Tienda\plugins\revolution\assets\coloredbg.png" />
+    <Content Include="Tienda\plugins\revolution\assets\gridtile.png" />
+    <Content Include="Tienda\plugins\revolution\assets\gridtile_3x3.png" />
+    <Content Include="Tienda\plugins\revolution\assets\gridtile_3x3_white.png" />
+    <Content Include="Tienda\plugins\revolution\assets\gridtile_white.png" />
+    <Content Include="Tienda\plugins\revolution\assets\loader.gif" />
+    <Content Include="Tienda\plugins\revolution\assets\sources\fb.png" />
+    <Content Include="Tienda\plugins\revolution\assets\sources\fr.png" />
+    <Content Include="Tienda\plugins\revolution\assets\sources\ig.png" />
+    <Content Include="Tienda\plugins\revolution\assets\sources\post.png" />
+    <Content Include="Tienda\plugins\revolution\assets\sources\revolution_slide1.png" />
+    <Content Include="Tienda\plugins\revolution\assets\sources\revolution_slide2.png" />
+    <Content Include="Tienda\plugins\revolution\assets\sources\tw.png" />
+    <Content Include="Tienda\plugins\revolution\assets\sources\vm.png" />
+    <Content Include="Tienda\plugins\revolution\assets\sources\wc.png" />
+    <Content Include="Tienda\plugins\revolution\assets\sources\yt.png" />
+    <Content Include="Tienda\plugins\revolution\assets\svg\index.php" />
+    <Content Include="Tienda\plugins\revolution\css\closedhand.cur" />
+    <Content Include="Tienda\plugins\revolution\css\index.php" />
+    <Content Include="Tienda\plugins\revolution\css\layers.css" />
+    <Content Include="Tienda\plugins\revolution\css\navigation-skins\ares.css" />
+    <Content Include="Tienda\plugins\revolution\css\navigation-skins\custom.css" />
+    <Content Include="Tienda\plugins\revolution\css\navigation-skins\dione.css" />
+    <Content Include="Tienda\plugins\revolution\css\navigation-skins\erinyen.css" />
+    <Content Include="Tienda\plugins\revolution\css\navigation-skins\gyges.css" />
+    <Content Include="Tienda\plugins\revolution\css\navigation-skins\hades.css" />
+    <Content Include="Tienda\plugins\revolution\css\navigation-skins\hebe.css" />
+    <Content Include="Tienda\plugins\revolution\css\navigation-skins\hephaistos.css" />
+    <Content Include="Tienda\plugins\revolution\css\navigation-skins\hermes.css" />
+    <Content Include="Tienda\plugins\revolution\css\navigation-skins\hesperiden.css" />
+    <Content Include="Tienda\plugins\revolution\css\navigation-skins\metis.css" />
+    <Content Include="Tienda\plugins\revolution\css\navigation-skins\persephone.css" />
+    <Content Include="Tienda\plugins\revolution\css\navigation-skins\uranus.css" />
+    <Content Include="Tienda\plugins\revolution\css\navigation-skins\zeus.css" />
+    <Content Include="Tienda\plugins\revolution\css\navigation.css" />
+    <Content Include="Tienda\plugins\revolution\css\openhand.cur" />
+    <Content Include="Tienda\plugins\revolution\css\settings-source.css" />
+    <Content Include="Tienda\plugins\revolution\css\settings.css" />
+    <Content Include="Tienda\plugins\revolution\css\tp-color-picker.css" />
+    <Content Include="Tienda\plugins\revolution\fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="Tienda\plugins\revolution\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Tienda\plugins\revolution\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Tienda\plugins\revolution\fonts\font-awesome\index.php" />
+    <Content Include="Tienda\plugins\revolution\fonts\index.php" />
+    <Content Include="Tienda\plugins\revolution\fonts\pe-icon-7-stroke\css\helper.css" />
+    <Content Include="Tienda\plugins\revolution\fonts\pe-icon-7-stroke\css\index.php" />
+    <Content Include="Tienda\plugins\revolution\fonts\pe-icon-7-stroke\css\pe-icon-7-stroke.css" />
+    <Content Include="Tienda\plugins\revolution\fonts\pe-icon-7-stroke\fonts\index.php" />
+    <Content Include="Tienda\plugins\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="Tienda\plugins\revolution\fonts\pe-icon-7-stroke\index.php" />
+    <Content Include="Tienda\plugins\revolution\fonts\revicons\index.php" />
+    <Content Include="Tienda\plugins\revolution\fonts\revicons\revicons.svg" />
+    <Content Include="Tienda\plugins\revolution\images\tpcolorpicker\arrow_down.png" />
+    <Content Include="Tienda\plugins\revolution\images\tpcolorpicker\arrow_up.png" />
+    <Content Include="Tienda\plugins\revolution\images\tpcolorpicker\check.png" />
+    <Content Include="Tienda\plugins\revolution\images\tpcolorpicker\check_reverse.png" />
+    <Content Include="Tienda\plugins\revolution\images\tpcolorpicker\check_small.png" />
+    <Content Include="Tienda\plugins\revolution\images\tpcolorpicker\delete.png" />
+    <Content Include="Tienda\plugins\revolution\images\tpcolorpicker\exit.png" />
+    <Content Include="Tienda\plugins\revolution\images\tpcolorpicker\point_bottom.png" />
+    <Content Include="Tienda\plugins\revolution\images\tpcolorpicker\point_top.png" />
+    <Content Include="Tienda\plugins\revolution\images\tpcolorpicker\save.png" />
+    <Content Include="Tienda\plugins\revolution\images\tpcolorpicker\trans_tile.png" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\index.php" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\revolution.extension.actions.min.js" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\revolution.extension.carousel.min.js" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\revolution.extension.kenburn.min.js" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\revolution.extension.layeranimation.min.js" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\revolution.extension.migration.min.js" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\revolution.extension.navigation.min.js" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\revolution.extension.parallax.min.js" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\revolution.extension.slideanims.min.js" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\revolution.extension.video.min.js" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\source\index.php" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\source\revolution.extension.actions.js" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\source\revolution.extension.carousel.js" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\source\revolution.extension.kenburn.js" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\source\revolution.extension.layeranimation.js" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\source\revolution.extension.migration.js" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\source\revolution.extension.navigation.js" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\source\revolution.extension.parallax.js" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\source\revolution.extension.slideanims.js" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\source\revolution.extension.video.js" />
+    <Content Include="Tienda\plugins\revolution\js\index.php" />
+    <Content Include="Tienda\plugins\revolution\js\jquery.themepunch.enablelog.js" />
+    <Content Include="Tienda\plugins\revolution\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="Tienda\plugins\revolution\js\jquery.themepunch.tools.min.js" />
+    <Content Include="Tienda\plugins\revolution\js\source\index.php" />
+    <Content Include="Tienda\plugins\revolution\js\source\jquery.themepunch.enablelog.js" />
+    <Content Include="Tienda\plugins\revolution\js\source\jquery.themepunch.revolution.js" />
+    <Content Include="Tienda\plugins\revolution\js\source\jquery.themepunch.tools.min.js" />
+    <Content Include="Tienda\plugins\revolution\js\source\tp-color-picker.js" />
+    <Content Include="Tienda\plugins\revolution\js\tp-color-picker.min.js" />
+    <Content Include="Tienda\plugins\slick\slick\ajax-loader.gif" />
+    <Content Include="Tienda\plugins\slick\slick\fonts\slick.svg" />
+    <Content Include="Tienda\plugins\slick\slick\slick.css" />
+    <Content Include="Tienda\plugins\slick\slick\slick.js" />
+    <Content Include="Tienda\plugins\slick\slick\slick.min.js" />
+    <Content Include="Tienda\resources\css\elements\_pagination.css" />
+    <Content Include="Tienda\resources\js\custom.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutTienda.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Shared\_NavCart.cshtml" />
+    <Content Include="Views\Home\DetalleProducto.cshtml" />
+    <Content Include="Views\Home\ListaProductos.cshtml" />
+    <Content Include="Views\Compra\Carrito.cshtml" />
+    <Content Include="Views\Compra\Checkout.cshtml" />
+    <Content Include="Tienda\css\style.css.map" />
+    <Content Include="Tienda\js\main.js.map" />
+    <Content Include="Tienda\plugins\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Tienda\plugins\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Tienda\plugins\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Tienda\plugins\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Tienda\plugins\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Tienda\plugins\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Tienda\plugins\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Tienda\plugins\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Tienda\plugins\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Tienda\plugins\ionicons\fonts\ionicons.eot" />
+    <Content Include="Tienda\plugins\ionicons\fonts\ionicons.ttf" />
+    <Content Include="Tienda\plugins\ionicons\fonts\ionicons.woff" />
+    <Content Include="Tienda\plugins\ps-icon\fonts\ps-icon.eot" />
+    <Content Include="Tienda\plugins\ps-icon\fonts\ps-icon.ttf" />
+    <Content Include="Tienda\plugins\ps-icon\fonts\ps-icon.woff" />
+    <Content Include="Tienda\plugins\ps-icon\selection.json" />
+    <Content Include="Tienda\plugins\revolution\assets\.DS_Store" />
+    <Content Include="Tienda\plugins\revolution\assets\svg\svg.zip" />
+    <Content Include="Tienda\plugins\revolution\css\.DS_Store" />
+    <Content Include="Tienda\plugins\revolution\fonts\.DS_Store" />
+    <Content Include="Tienda\plugins\revolution\fonts\font-awesome\.DS_Store" />
+    <Content Include="Tienda\plugins\revolution\fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Tienda\plugins\revolution\fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Tienda\plugins\revolution\fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Tienda\plugins\revolution\fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Tienda\plugins\revolution\fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Tienda\plugins\revolution\fonts\pe-icon-7-stroke\.DS_Store" />
+    <Content Include="Tienda\plugins\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="Tienda\plugins\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="Tienda\plugins\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="Tienda\plugins\revolution\fonts\revicons\revicons.eot" />
+    <Content Include="Tienda\plugins\revolution\fonts\revicons\revicons.ttf" />
+    <Content Include="Tienda\plugins\revolution\fonts\revicons\revicons.woff" />
+    <Content Include="Tienda\plugins\revolution\js\.DS_Store" />
+    <Content Include="Tienda\plugins\revolution\js\extensions\.DS_Store" />
+    <Content Include="Tienda\plugins\slick\slick\fonts\slick.eot" />
+    <Content Include="Tienda\plugins\slick\slick\fonts\slick.ttf" />
+    <Content Include="Tienda\plugins\slick\slick\fonts\slick.woff" />
+    <Content Include="Tienda\resources\jade\base\fonts.pug" />
+    <Content Include="Tienda\resources\jade\base\head.pug" />
+    <Content Include="Tienda\resources\jade\base\scripts.pug" />
+    <Content Include="Tienda\resources\jade\base\styles.pug" />
+    <Content Include="Tienda\resources\jade\common\accordion.pug" />
+    <Content Include="Tienda\resources\jade\common\breadcrumb.pug" />
+    <Content Include="Tienda\resources\jade\common\cart.pug" />
+    <Content Include="Tienda\resources\jade\common\masonry.pug" />
+    <Content Include="Tienda\resources\jade\common\mega-menu.pug" />
+    <Content Include="Tienda\resources\jade\common\pagination.pug" />
+    <Content Include="Tienda\resources\jade\common\tabs.pug" />
+    <Content Include="Tienda\resources\jade\data\list.pug" />
+    <Content Include="Tienda\resources\jade\data\menu.pug" />
+    <Content Include="Tienda\resources\jade\data\pages.pug" />
+    <Content Include="Tienda\resources\jade\data\post.pug" />
+    <Content Include="Tienda\resources\jade\layouts\404.pug" />
+    <Content Include="Tienda\resources\jade\layouts\about.pug" />
+    <Content Include="Tienda\resources\jade\layouts\blog-detail.pug" />
+    <Content Include="Tienda\resources\jade\layouts\blog-grid-2.pug" />
+    <Content Include="Tienda\resources\jade\layouts\blog-grid.pug" />
+    <Content Include="Tienda\resources\jade\layouts\blog-list.pug" />
+    <Content Include="Tienda\resources\jade\layouts\cart.pug" />
+    <Content Include="Tienda\resources\jade\layouts\checkout.pug" />
+    <Content Include="Tienda\resources\jade\layouts\compare.pug" />
+    <Content Include="Tienda\resources\jade\layouts\contact-us-2.pug" />
+    <Content Include="Tienda\resources\jade\layouts\contact-us.pug" />
+    <Content Include="Tienda\resources\jade\layouts\homepage-2.pug" />
+    <Content Include="Tienda\resources\jade\layouts\homepage-3.pug" />
+    <Content Include="Tienda\resources\jade\layouts\homepage.pug" />
+    <Content Include="Tienda\resources\jade\layouts\pages.pug" />
+    <Content Include="Tienda\resources\jade\layouts\product-detail.pug" />
+    <Content Include="Tienda\resources\jade\layouts\product-listing-2.pug" />
+    <Content Include="Tienda\resources\jade\layouts\product-listing.pug" />
+    <Content Include="Tienda\resources\jade\layouts\sticky.pug" />
+    <Content Include="Tienda\resources\jade\layouts\typhography.pug" />
+    <Content Include="Tienda\resources\jade\layouts\whishlist.pug" />
+    <Content Include="Tienda\resources\jade\master.pug" />
+    <Content Include="Tienda\resources\jade\partials\about.pug" />
+    <Content Include="Tienda\resources\jade\partials\blog-detail.pug" />
+    <Content Include="Tienda\resources\jade\partials\blog-grid-2.pug" />
+    <Content Include="Tienda\resources\jade\partials\blog-grid.pug" />
+    <Content Include="Tienda\resources\jade\partials\blog-list.pug" />
+    <Content Include="Tienda\resources\jade\partials\cart.pug" />
+    <Content Include="Tienda\resources\jade\partials\checkout.pug" />
+    <Content Include="Tienda\resources\jade\partials\compare.pug" />
+    <Content Include="Tienda\resources\jade\partials\contact-us-2.pug" />
+    <Content Include="Tienda\resources\jade\partials\contact-us.pug" />
+    <Content Include="Tienda\resources\jade\partials\demo-text.pug" />
+    <Content Include="Tienda\resources\jade\partials\footer.pug" />
+    <Content Include="Tienda\resources\jade\partials\header.pug" />
+    <Content Include="Tienda\resources\jade\partials\modules\accsess.pug" />
+    <Content Include="Tienda\resources\jade\partials\modules\blog-sidebar.pug" />
+    <Content Include="Tienda\resources\jade\partials\modules\clothes.pug" />
+    <Content Include="Tienda\resources\jade\partials\modules\form-comment.pug" />
+    <Content Include="Tienda\resources\jade\partials\modules\pagination.pug" />
+    <Content Include="Tienda\resources\jade\partials\modules\partner.pug" />
+    <Content Include="Tienda\resources\jade\partials\modules\post-comment.pug" />
+    <Content Include="Tienda\resources\jade\partials\modules\product-action.pug" />
+    <Content Include="Tienda\resources\jade\partials\modules\product-sidebar.pug" />
+    <Content Include="Tienda\resources\jade\partials\modules\shoe.pug" />
+    <Content Include="Tienda\resources\jade\partials\product-detail.pug" />
+    <Content Include="Tienda\resources\jade\partials\product-listing-2.pug" />
+    <Content Include="Tienda\resources\jade\partials\product-listing.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\home-2-features.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\home-2-hotdeal.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\home-2-new-product.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\home-2-offer.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\home-3-features.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\home-3-hotdeal.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\home-3-offer.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\home-3-product.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\home-3-topsale.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\home-banner.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\home-blog.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\home-contact.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\home-features-product.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\home-hot-deal.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\home-testimonial.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\home-top-sales.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\related-product.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\slider-2.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\slider-3.pug" />
+    <Content Include="Tienda\resources\jade\partials\sections\subscribe.pug" />
+    <Content Include="Tienda\resources\jade\partials\slider\slider-1.pug" />
+    <Content Include="Tienda\resources\jade\partials\slider\slider-2.pug" />
+    <Content Include="Tienda\resources\jade\partials\typhography.pug" />
+    <Content Include="Tienda\resources\jade\partials\whishlist.pug" />
+    <Content Include="Tienda\resources\jade\utils\mixins.pug" />
+    <Content Include="Tienda\resources\sass\base\_reset.scss" />
+    <Content Include="Tienda\resources\sass\base\_typhography.scss" />
+    <Content Include="Tienda\resources\sass\components\_cart.scss" />
+    <Content Include="Tienda\resources\sass\components\_contact.scss" />
+    <Content Include="Tienda\resources\sass\components\_navigation.scss" />
+    <Content Include="Tienda\resources\sass\components\_search.scss" />
+    <Content Include="Tienda\resources\sass\components\_subscribe.scss" />
+    <Content Include="Tienda\resources\sass\custom.scss" />
+    <Content Include="Tienda\resources\sass\elements\_author.scss" />
+    <Content Include="Tienda\resources\sass\elements\_badge.scss" />
+    <Content Include="Tienda\resources\sass\elements\_banner.scss" />
+    <Content Include="Tienda\resources\sass\elements\_block.scss" />
+    <Content Include="Tienda\resources\sass\elements\_button.scss" />
+    <Content Include="Tienda\resources\sass\elements\_comment.scss" />
+    <Content Include="Tienda\resources\sass\elements\_filter.scss" />
+    <Content Include="Tienda\resources\sass\elements\_form.scss" />
+    <Content Include="Tienda\resources\sass\elements\_grid.scss" />
+    <Content Include="Tienda\resources\sass\elements\_hotspot.scss" />
+    <Content Include="Tienda\resources\sass\elements\_iconbox.scss" />
+    <Content Include="Tienda\resources\sass\elements\_list.scss" />
+    <Content Include="Tienda\resources\sass\elements\_loader.scss" />
+    <Content Include="Tienda\resources\sass\elements\_masonry.scss" />
+    <Content Include="Tienda\resources\sass\elements\_offer.scss" />
+    <Content Include="Tienda\resources\sass\elements\_pagination.scss" />
+    <Content Include="Tienda\resources\sass\elements\_post.scss" />
+    <Content Include="Tienda\resources\sass\elements\_rating.scss" />
+    <Content Include="Tienda\resources\sass\elements\_review.scss" />
+    <Content Include="Tienda\resources\sass\elements\_section.scss" />
+    <Content Include="Tienda\resources\sass\elements\_shoe.scss" />
+    <Content Include="Tienda\resources\sass\elements\_table.scss" />
+    <Content Include="Tienda\resources\sass\elements\_tags.scss" />
+    <Content Include="Tienda\resources\sass\elements\_testimonial.scss" />
+    <Content Include="Tienda\resources\sass\elements\_user.scss" />
+    <Content Include="Tienda\resources\sass\elements\_widget.scss" />
+    <Content Include="Tienda\resources\sass\frames\_background.scss" />
+    <Content Include="Tienda\resources\sass\frames\_margin.scss" />
+    <Content Include="Tienda\resources\sass\frames\_padding.scss" />
+    <Content Include="Tienda\resources\sass\modules\_404.scss" />
+    <Content Include="Tienda\resources\sass\modules\_footer.scss" />
+    <Content Include="Tienda\resources\sass\modules\_header.scss" />
+    <Content Include="Tienda\resources\sass\modules\_product.scss" />
+    <Content Include="Tienda\resources\sass\themes\_effect.scss" />
+    <Content Include="Tienda\resources\sass\utils\_mixin.scss" />
+    <Content Include="Tienda\resources\sass\utils\_variable.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_border-color.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_border-radius.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_border-style.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_border-width.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_buttons.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_clearfix.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_ellipsis.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_font-stacks.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_hide-text.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_margin.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_padding.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_position.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_prefixer.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_retina-image.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_size.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_text-inputs.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_timing-functions.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_triangle.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\addons\_word-wrap.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_animation.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_appearance.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_backface-visibility.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_background-image.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_background.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_border-image.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_calc.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_columns.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_filter.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_flex-box.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_font-face.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_font-feature-settings.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_hidpi-media-query.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_hyphens.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_image-rendering.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_keyframes.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_linear-gradient.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_perspective.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_placeholder.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_radial-gradient.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_selection.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_text-decoration.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_transform.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_transition.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\css3\_user-select.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\functions\_assign-inputs.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\functions\_contains-falsy.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\functions\_contains.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\functions\_is-length.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\functions\_is-light.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\functions\_is-number.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\functions\_is-size.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\functions\_modular-scale.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\functions\_px-to-em.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\functions\_px-to-rem.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\functions\_shade.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\functions\_strip-units.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\functions\_tint.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\functions\_transition-property-name.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\functions\_unpack.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\helpers\_convert-units.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\helpers\_directional-values.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\helpers\_font-source-declaration.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\helpers\_gradient-positions-parser.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\helpers\_linear-angle-parser.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\helpers\_linear-gradient-parser.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\helpers\_linear-positions-parser.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\helpers\_linear-side-corner-parser.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\helpers\_radial-arg-parser.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\helpers\_radial-gradient-parser.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\helpers\_radial-positions-parser.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\helpers\_render-gradients.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\helpers\_shape-size-stripper.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\helpers\_str-to-num.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\settings\_asset-pipeline.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\settings\_prefixer.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\settings\_px-to-em.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\_bourbon-deprecated-upcoming.scss" />
+    <Content Include="Tienda\resources\sass\vendor\bourbon\_bourbon.scss" />
+    <Content Include="Tienda\resources\sass\vendor\_hover_effect.scss" />
+    <Content Include="Tienda\resources\sass\vendor\_masonry_grid.scss" />
+    <Content Include="Tienda\resources\sass\vendor\_media_query.scss" />
+    <Content Include="Views\CRUDProducto\Create.cshtml" />
+    <Content Include="Views\CRUDProducto\Delete.cshtml" />
+    <Content Include="Views\CRUDProducto\Details.cshtml" />
+    <Content Include="Views\CRUDProducto\Edit.cshtml" />
+    <Content Include="Views\CRUDProducto\Index.cshtml" />
+    <Content Include="Views\Administrador\Reportes.cshtml" />
+    <Content Include="Views\CRUDRoles\Create.cshtml" />
+    <Content Include="Views\CRUDRoles\Delete.cshtml" />
+    <Content Include="Views\CRUDRoles\Details.cshtml" />
+    <Content Include="Views\CRUDRoles\Edit.cshtml" />
+    <Content Include="Views\CRUDRoles\Index.cshtml" />
+    <Content Include="Views\CRUDUsuarios\Create.cshtml" />
+    <Content Include="Views\CRUDUsuarios\Delete.cshtml" />
+    <Content Include="Views\CRUDUsuarios\Details.cshtml" />
+    <Content Include="Views\CRUDUsuarios\Edit.cshtml" />
+    <Content Include="Views\CRUDUsuarios\Index.cshtml" />
+    <Content Include="Views\CRUDCategoria\Create.cshtml" />
+    <Content Include="Views\CRUDCategoria\Delete.cshtml" />
+    <Content Include="Views\CRUDCategoria\Details.cshtml" />
+    <Content Include="Views\CRUDCategoria\Edit.cshtml" />
+    <Content Include="Views\CRUDCategoria\Index.cshtml" />
+    <Content Include="Views\CRUDSubCategoria\Create.cshtml" />
+    <Content Include="Views\CRUDSubCategoria\Delete.cshtml" />
+    <Content Include="Views\CRUDSubCategoria\Details.cshtml" />
+    <Content Include="Views\CRUDSubCategoria\Edit.cshtml" />
+    <Content Include="Views\CRUDSubCategoria\Index.cshtml" />
+    <Content Include="Views\CRUDProveedor\Create.cshtml" />
+    <Content Include="Views\CRUDProveedor\Delete.cshtml" />
+    <Content Include="Views\CRUDProveedor\Details.cshtml" />
+    <Content Include="Views\CRUDProveedor\Edit.cshtml" />
+    <Content Include="Views\CRUDProveedor\Index.cshtml" />
+    <Content Include="Views\EliminarEditarDetalleCompra\Create.cshtml" />
+    <Content Include="Views\EliminarEditarDetalleCompra\Delete.cshtml" />
+    <Content Include="Views\EliminarEditarDetalleCompra\Details.cshtml" />
+    <Content Include="Views\EliminarEditarDetalleCompra\Edit.cshtml" />
+    <Content Include="Views\EliminarEditarDetalleCompra\Index.cshtml" />
+    <Content Include="Views\CRUDProducto\ModificarFoto.cshtml" />
+    <Content Include="Views\Compra\ErrorStock.cshtml" />
+    <Content Include="Views\Administrador\ReportesProovedor.cshtml" />
+    <Content Include="Views\Administrador\ReportesUsuario.cshtml" />
+    <Content Include="Views\Administrador\ReportesCategorias.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="ImagenesProductos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reportes\Report1.rdlc" />
+    <EmbeddedResource Include="Reportes\Report2.rdlc" />
+    <EmbeddedResource Include="Reportes\Report3.rdlc" />
+    <EmbeddedResource Include="Reportes\Report4.rdlc" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53059</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44382/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

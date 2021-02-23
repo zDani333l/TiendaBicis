@@ -1,0 +1,154 @@
+﻿@model TiendaWebBicicletas.DAL.Tbl_Producto
+
+@{
+    ViewBag.Title = "Agregar";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card-body">
+    <div class="row mb-2 mb-xl-3">
+        <div class="col-auto ml-auto text-right mt-n1">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-transparent p-0 mt-1 mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="#">Admin</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="/CRUDProducto/Index">Producto</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        Agregar
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    @using (Html.BeginForm("Create", "CRUDProducto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+            <h4>Producto</h4>
+            @*<hr />*@
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.NombreProducto, htmlAttributes: new { @class = "col-form-label col-sm-2 text-sm-right" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.NombreProducto, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NombreProducto, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "col-form-label col-sm-2 text-sm-right" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Cantidad, htmlAttributes: new { @class = "col-form-label col-sm-2 text-sm-right" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.Cantidad, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Cantidad, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Precio, htmlAttributes: new { @class = "col-form-label col-sm-2 text-sm-right" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.Precio, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Precio, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Talla, htmlAttributes: new { @class = "col-form-label col-sm-2 text-sm-right" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.Talla, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Talla, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "col-form-label col-sm-2 text-sm-right" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.Color, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.ProveedorId, "Proveedor", htmlAttributes: new { @class = "col-form-label col-sm-2 text-sm-right" })
+                <div class="col-sm-10">
+                    @Html.DropDownList("ProveedorId", null, htmlAttributes: new { @class = "btn btn-info dropdown-toggle" })
+                    @Html.ValidationMessageFor(model => model.ProveedorId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.IdCategoria, "Categorias", htmlAttributes: new { @class = "col-form-label col-sm-2 text-sm-right" })
+                <div class="col-sm-10">
+                    @Html.DropDownList("IdCategoria", null, htmlAttributes: new { @class = "btn btn-secondary dropdown-toggle" })
+                    @Html.ValidationMessageFor(model => model.IdCategoria, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.IdSubCategoria, "SubCategoria", htmlAttributes: new { @class = "col-form-label col-sm-2 text-sm-right" })
+                <div class="col-md-10">
+                    <select id="IdSubCategoria" name="IdSubCategoria" class="btn btn-secondary dropdown-toggle"></select>
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="files" class="col-form-label col-sm-2 text-sm-right">Selecciones las imagenes:</label>
+                <div class="col-sm-10">
+                    <input type="file" id="Files" name="Files" multiple>
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10 ml-sm-auto">
+                    <input type="submit" value="Agregar Producto" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    }
+    <div>
+        @Html.ActionLink("Ir a lista", "Index")
+    </div>
+</div>
+
+
+
+
+<script>
+    var Categorias = document.getElementById("IdCategoria");
+    Categorias.addEventListener("change", Refresh);
+    Refresh();
+
+    function Refresh() {
+        fetch("@Url.Content("~/CRUDProducto/SubCaterogia")" + "?idCategoria=" + Categorias.value)
+            .then(function (result) {
+                if (result.ok) {
+                    return result.json();
+                }
+            })
+            .then(function (data) {
+                console.log(data);
+                cbo = document.getElementById("IdSubCategoria");
+                cbo.innerHTML = "";
+                data.forEach(function (element) {
+                    let opt = document.createElement("option");
+                    opt.appendChild(document.createTextNode(element.Text));
+                    opt.value = element.Value;
+                    cbo.appendChild(opt);
+                })
+            })
+    }
+
+</script>

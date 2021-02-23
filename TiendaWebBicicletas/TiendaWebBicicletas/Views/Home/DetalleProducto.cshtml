@@ -1,0 +1,155 @@
+﻿
+@using TiendaWebBicicletas.Models
+@model DetalleProductoViewModels
+@{
+    ViewBag.Title = "Detalle Producto";
+    Layout = "~/Views/Shared/_LayoutTienda.cshtml";
+    var imgs = Model.Imagenes.ToList();
+    int auxCheck = ViewBag.check;
+}
+
+<main class="ps-main">
+    <div class="test">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ps-product--detail pt-60">
+        <div class="ps-container">
+            <div class="row">
+                <div class="col-lg-10 col-md-12 col-lg-offset-1">
+
+                    <div class="ps-product__thumbnail">
+                        <div class="ps-product__preview">
+                            <div class="ps-product__variants">
+                                @for (int i = 0; i < imgs.Count; i++)
+                                {
+                                    if (i == 5)
+                                    {
+                                        break;
+                                    }
+                                <div class="item"><img src="/ImagenesProductos/@imgs[i].NombreImagen" alt=""></div>
+                                } 
+                            </div>
+
+                        </div>
+                        <div class="ps-product__image">
+                            @for (int i = 0; i < imgs.Count; i++)
+                            {
+                                if (i == 5)
+                                {
+                                    break;
+                                }
+                                <div class="item"><img class="zoom" src="/ImagenesProductos/@imgs[i].NombreImagen" alt="" data-zoom-image="/imagenes/@imgs[i].NombreImagen"></div>
+                                
+                            }
+                        </div>
+                    </div>
+                    <div class="ps-product__thumbnail--mobile">
+                        <div class="ps-product__main-img"><img src="/ImagenesProductos/@imgs[0].NombreImagen" alt=""></div>
+                        <div class="ps-product__preview owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="20" data-owl-nav="true" data-owl-dots="false" data-owl-item="3" data-owl-item-xs="3" data-owl-item-sm="3" data-owl-item-md="3" data-owl-item-lg="3" data-owl-duration="1000" data-owl-mousedrag="on">
+                            @for (int i = 0; i < imgs.Count; i++)
+                            {
+                                if (i == 5)
+                                {
+                                    break;
+                                }
+                                <img src="/ImagenesProductos/@imgs[i].NombreImagen" alt="">
+                            }
+                        </div>
+                    </div>
+
+                    <div class="ps-product__info">
+                        <h1>@Model.NombreProducto</h1>
+
+                        <p class="ps-product__category">
+                            <a href="/Home/ListaProductos?buscar=@Model.Categoria">@Model.Categoria</a>,<a href="/Home/ListaProductos?buscar=@Model.SubCategoria">@Model.SubCategoria</a>
+                        </p>
+                        <h3 class="ps-product__price">$ @Model.Precio <del>$ @Model.PrecioTachado</del></h3>
+                        <div class="ps-product__block ps-product__quickview">
+                            <h4>DESCRIPCION</h4>
+                            <p>@Model.Descripcion</p>
+                        </div>
+
+                        <div class="ps-product__block ps-product__size">
+                            <h4>TALLA @Model.Talla     -    COLOR @Model.Color  </h4>
+                        </div>
+
+                        @if (auxCheck == 0)
+                        {
+                            <div class="ps-product__shopping">
+                                <a class="ps-btn mb-10" href="/Compra/AgregarCarrito?productId=@Model.ProductoId&search=@ViewBag.buscar&pag=@ViewBag.pag">Agregar Al Carrito<i class="ps-icon-next"></i></a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="ps-product__shopping">
+                                <div class="container">
+                                    <a class="ps-btn mb-5" href="">Seguir Comprando<i class="ps-icon-next"></i></a>
+                                    <a class="ps-btn mb-5" href="">Ver Detalle Compra<i class="ps-icon-next"></i></a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ps-section ps-section--top-sales ps-owl-root pt-40 pb-80">
+        <div class="ps-container">
+            <div class="ps-section__header mb-50">
+                <div class="row">
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 ">
+                        <h3 class="ps-section__title" data-mask="Articulos Relacionados">- Te podrían gustar</h3>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
+                        <div class="ps-owl-actions"><a class="ps-prev" href=""><i class="ps-icon-arrow-right"></i>Ant</a><a class="ps-next" href="">Sig<i class="ps-icon-arrow-left"></i></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ps-section__content">
+                <div class="ps-owl--colection owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="30" data-owl-nav="false" data-owl-dots="false" data-owl-item="4" data-owl-item-xs="1" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="4" data-owl-duration="1000" data-owl-mousedrag="on">
+                    @foreach (var item in Model.ProductosRelacionados)
+                    {
+                        var img = item.Tbl_imagen.ToList();
+                        <div class="ps-shoes--carousel">
+                            <div class="ps-shoe">
+                                <div class="ps-shoe__thumbnail">
+                                    <a class="ps-shoe__favorite" href="/Compra/AgregarCarrito?productId=@item.ProductoId&search=@ViewBag.buscar&pag=@ViewBag.pag"><i class="ps-icon-shopping-cart"></i></a>
+                                    <img style=”max-width:100%;width:auto;height:auto src="/ImagenesProductos/@img[0].NombreImagen" alt=""><a class="ps-shoe__overlay" href="/Home/DetalleProducto?id=@item.ProductoId&buscar=@ViewBag.buscar&pagina=@ViewBag.pag"></a>
+                                </div>
+                                <div class="ps-shoe__content">
+                                    <div class="ps-shoe__variants">
+                                        <div class="ps-shoe__variant normal">
+                                            @for (int i = 0; i < img.Count; i++)
+                                            {
+                                                if (i == 5)
+                                                {
+                                                    break;
+                                                }
+                                                <img style=”max-width:100%;width:auto;height:auto src="/ImagenesProductos/@img[i].NombreImagen" alt="">
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="ps-shoe__detail">
+                                        <a class="ps-shoe__name" href="/Home/DetalleProducto?id=@item.ProductoId&buscar=@ViewBag.buscar&pagina=@ViewBag.pag">@item.NombreProducto</a>
+                                        <p class="ps-shoe__categories">
+                                            <a href="/Home/ListaProductos?buscar=@item.Tbl_Categoria.NombreCategoria">@item.Tbl_Categoria.NombreCategoria</a>,<a href="/Home/ListaProductos?buscar=@item.Tbl_SubCategoria.NombreSubCategoria">@item.Tbl_SubCategoria.NombreSubCategoria</a>
+                                        </p>
+                                        <span class="ps-shoe__price">
+                                             $ @item.Precio
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
