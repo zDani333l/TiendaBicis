@@ -1,0 +1,99 @@
+﻿@model TiendaWebBicicletas.DAL.Tbl_DetalleCompra
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tbl_DetalleCompra</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ciudad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pais)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pais)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoPostal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoPostal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Monto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Monto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoPago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoPago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUsers.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tbl_Carro.IdUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tbl_Carro.IdUsuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tbl_OrdenStatus.OrdenStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tbl_OrdenStatus.OrdenStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DetalleCompraId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

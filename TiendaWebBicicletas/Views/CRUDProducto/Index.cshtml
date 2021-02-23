@@ -1,0 +1,91 @@
+﻿@model IEnumerable<TiendaWebBicicletas.DAL.Tbl_Producto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card-body">
+    <div class="row mb-2 mb-xl-3">
+        <div class="col-auto ml-auto text-right mt-n1">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-transparent p-0 mt-1 mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="#">Admin</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        Productos
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Productos</h5>
+                <a class="col-md-4" href="/CRUDProducto/Create">Nuevo Producto</a>
+
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NombreProducto)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Cantidad)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Precio)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Talla)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Color)
+                        </th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        var imgs = item.Tbl_imagen;
+                        foreach (var it in imgs)
+                        {
+                            if (it != null)
+                            {
+                                var img = @item.Tbl_imagen.ToList();
+                                <tr>
+                                    <td>
+                                        <img src="~/ImagenesProductos/@img[0].NombreImagen" width="48" height="48" class="rounded-circle mr-2" alt="Avatar"> @Html.DisplayFor(modelItem => item.NombreProducto)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cantidad)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Precio)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Talla)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Color)
+                                    </td>
+                                    <td class="table-action">
+                                        <a href="/CRUDProducto/Edit?id=@item.ProductoId"><i class="align-middle" data-feather="edit-2"></i></a>
+                                        <a href="/CRUDProducto/Delete?id=@item.ProductoId"><i class="align-middle" data-feather="trash"></i></a>
+                                        <a href="/CRUDProducto/Details?id=@item.ProductoId"><i class="align-middle" data-feather="eye"></i></a>
+                                    </td>
+                                </tr>
+                                break;
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

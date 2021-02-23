@@ -1,0 +1,167 @@
+﻿@model TiendaWebBicicletas.DAL.Tbl_Producto
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="card-body">
+    <div class="row mb-2 mb-xl-3">
+        <div class="col-auto ml-auto text-right mt-n1">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-transparent p-0 mt-1 mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="#">Admin</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="/CRUDProducto/Index">Producto</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        Eliminar
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <h3>Estas seguro de eliminar este producto?</h3>
+    <div>
+        <h4>Producto</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NombreProducto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NombreProducto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cantidad)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FechaCreacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FechaCreacion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FechaModificacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FechaModificacion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Precio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Precio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Talla)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Talla)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Color)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Color)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tbl_Categoria.NombreCategoria)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tbl_Categoria.NombreCategoria)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tbl_SubCategoria.NombreSubCategoria)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tbl_SubCategoria.NombreSubCategoria)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tbl_Proveedor.nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tbl_Proveedor.nombre)
+            </dd>
+
+        </dl>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Imagenes producto</h5>
+                </div>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label>Nombre Imagen</label>
+                            </th>
+                            <th>
+                                <label>Imagen</label>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Tbl_imagen)
+                        {
+                            if (item != null)
+                            {
+                                <tr>
+                                    <td>
+                                        <label>@item.NombreImagen</label>
+                                    </td>
+                                    <td>
+                                        <img src="~/ImagenesProductos/@item.NombreImagen" width="48" height="48" class="rounded-circle mr-2" alt="Avatar">
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Borrar" class="btn btn-default" /> |
+                @Html.ActionLink("Ir al inicio", "Index")
+            </div>
+        }
+    </div>
+</div>

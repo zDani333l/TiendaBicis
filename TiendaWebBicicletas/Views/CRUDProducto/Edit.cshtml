@@ -1,0 +1,195 @@
+﻿@model TiendaWebBicicletas.DAL.Tbl_Producto
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card-body">
+    <div class="row mb-2 mb-xl-3">
+        <div class="col-auto ml-auto text-right mt-n1">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-transparent p-0 mt-1 mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="#">Admin</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="/CRUDProducto/Index">Producto</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        Editar
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Editar Producto</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ProductoId)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NombreProducto, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NombreProducto, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NombreProducto, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Cantidad, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Cantidad, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Cantidad, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Precio, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Precio, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Precio, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Talla, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Talla, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Talla, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Color, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProveedorId, "ProveedorId", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("ProveedorId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ProveedorId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdCategoria, "IdCategoria", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("IdCategoria", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IdCategoria, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdSubCategoria, "SubCategoria", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <select id="IdSubCategoria" name="IdSubCategoria" class="form-control"></select>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Guardar Cambios" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Imagenes Relacionadas Al Producto</h5>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            Nombre Imagen
+                        </th>
+                        <th>
+                            Imagen
+                        </th>
+                        <th>
+                            Acciones
+                        </th>
+
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Tbl_imagen)
+                    {
+                        if (item != null)
+                        {
+                            <tr>
+                                <td>
+                                    <label>@item.NombreImagen</label>
+                                </td>
+                                <td>
+                                    <img src="~/ImagenesProductos/@item.NombreImagen" width="48" height="48" class="rounded-circle mr-2" alt="Avatar">
+                                </td>
+                                <td class="table-action">
+                                    <a href="/CRUDProducto/ModificarFoto?id=@item.IdImagenes"><i class="align-middle" data-feather="edit-2"></i></a>
+                                    <a href="/CRUDProducto/EliminarFoto?idFoto=@item.IdImagenes&idProducto=@item.IdProducto"><i class="align-middle" data-feather="trash"></i></a>
+
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <div>
+        @Html.ActionLink("Ir al inicio", "Index")
+    </div>
+</div>
+    <script>
+    var Categorias = document.getElementById("IdCategoria");
+    Categorias.addEventListener("change", Refresh);
+    Refresh();
+
+    function Refresh() {
+        fetch("@Url.Content("~/CRUDProducto/SubCaterogia")" + "?idCategoria=" + Categorias.value)
+            .then(function (result) {
+                if (result.ok) {
+                    return result.json();
+                }
+            })
+            .then(function (data) {
+                console.log(data);
+                cbo = document.getElementById("IdSubCategoria");
+                cbo.innerHTML = "";
+                data.forEach(function (element) {
+                    let opt = document.createElement("option");
+                    opt.appendChild(document.createTextNode(element.Text));
+                    opt.value = element.Value;
+                    cbo.appendChild(opt);
+                })
+            })
+    }
+
+    </script>

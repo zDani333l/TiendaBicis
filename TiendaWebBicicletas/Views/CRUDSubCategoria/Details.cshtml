@@ -1,0 +1,43 @@
+﻿@model TiendaWebBicicletas.DAL.Tbl_SubCategoria
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tbl_SubCategoria</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreSubCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreSubCategoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescripcionSubCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionSubCategoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tbl_Categoria.NombreCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tbl_Categoria.NombreCategoria)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdSubCategoria }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

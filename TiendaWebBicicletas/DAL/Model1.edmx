@@ -1,0 +1,1237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbTiendaOnlineBicicletasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="FechaModificacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tbl_Carro">
+          <Key>
+            <PropertyRef Name="CarroId" />
+          </Key>
+          <Property Name="CarroId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Tbl_CarroProducto">
+          <Key>
+            <PropertyRef Name="IdList" />
+          </Key>
+          <Property Name="IdList" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCarro" Type="int" Nullable="false" />
+          <Property Name="ProductoId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Categoria">
+          <Key>
+            <PropertyRef Name="CategoriaId" />
+          </Key>
+          <Property Name="CategoriaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCategoria" Type="varchar" MaxLength="500" />
+          <Property Name="DescripcionCategoria" Type="varchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDelete" Type="bit" />
+        </EntityType>
+        <EntityType Name="Tbl_DetalleCompra">
+          <Key>
+            <PropertyRef Name="DetalleCompraId" />
+          </Key>
+          <Property Name="DetalleCompraId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="500" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="500" />
+          <Property Name="Estado" Type="varchar" MaxLength="500" />
+          <Property Name="Pais" Type="varchar" MaxLength="50" />
+          <Property Name="CodigoPostal" Type="varchar" MaxLength="15" />
+          <Property Name="Monto" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TipoPago" Type="varchar" MaxLength="50" />
+          <Property Name="IdUsuario" Type="nvarchar" MaxLength="128" />
+          <Property Name="IdCarrito" Type="int" />
+          <Property Name="IdOrdenStatus" Type="int" />
+        </EntityType>
+        <EntityType Name="Tbl_imagen">
+          <Key>
+            <PropertyRef Name="IdImagenes" />
+          </Key>
+          <Property Name="IdImagenes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreImagen" Type="varchar" MaxLength="200" />
+          <Property Name="DirImagen" Type="varchar" MaxLength="500" />
+          <Property Name="IdProducto" Type="int" />
+        </EntityType>
+        <EntityType Name="Tbl_OrdenStatus">
+          <Key>
+            <PropertyRef Name="OrdenStatusId" />
+          </Key>
+          <Property Name="OrdenStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrdenStatus" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Tbl_Producto">
+          <Key>
+            <PropertyRef Name="ProductoId" />
+          </Key>
+          <Property Name="ProductoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreProducto" Type="varchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="500" />
+          <Property Name="Cantidad" Type="int" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="Precio" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Talla" Type="varchar" MaxLength="10" />
+          <Property Name="Color" Type="varchar" MaxLength="50" />
+          <Property Name="ProveedorId" Type="int" />
+          <Property Name="IdSubCategoria" Type="int" />
+          <Property Name="IdCategoria" Type="int" />
+        </EntityType>
+        <EntityType Name="Tbl_Proveedor">
+          <Key>
+            <PropertyRef Name="ProveedorId" />
+          </Key>
+          <Property Name="ProveedorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="200" />
+          <Property Name="direccion" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Tbl_SubCategoria">
+          <Key>
+            <PropertyRef Name="IdSubCategoria" />
+          </Key>
+          <Property Name="IdSubCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreSubCategoria" Type="varchar" MaxLength="500" />
+          <Property Name="DescripcionSubCategoria" Type="varchar" MaxLength="500" />
+          <Property Name="CategoriaId" Type="int" />
+        </EntityType>
+        <Association Name="FK__Tbl_Carro__IdCar__693CA210">
+          <End Role="Tbl_Carro" Type="Self.Tbl_Carro" Multiplicity="1" />
+          <End Role="Tbl_CarroProducto" Type="Self.Tbl_CarroProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Carro">
+              <PropertyRef Name="CarroId" />
+            </Principal>
+            <Dependent Role="Tbl_CarroProducto">
+              <PropertyRef Name="IdCarro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Carro__IdUsu__628FA481">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Tbl_Carro" Type="Self.Tbl_Carro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tbl_Carro">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Carro__Produ__6A30C649">
+          <End Role="Tbl_Producto" Type="Self.Tbl_Producto" Multiplicity="1" />
+          <End Role="Tbl_CarroProducto" Type="Self.Tbl_CarroProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Producto">
+              <PropertyRef Name="ProductoId" />
+            </Principal>
+            <Dependent Role="Tbl_CarroProducto">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Detal__IdCar__6FE99F9F">
+          <End Role="Tbl_Carro" Type="Self.Tbl_Carro" Multiplicity="0..1" />
+          <End Role="Tbl_DetalleCompra" Type="Self.Tbl_DetalleCompra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Carro">
+              <PropertyRef Name="CarroId" />
+            </Principal>
+            <Dependent Role="Tbl_DetalleCompra">
+              <PropertyRef Name="IdCarrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Detal__IdOrd__70DDC3D8">
+          <End Role="Tbl_OrdenStatus" Type="Self.Tbl_OrdenStatus" Multiplicity="0..1" />
+          <End Role="Tbl_DetalleCompra" Type="Self.Tbl_DetalleCompra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_OrdenStatus">
+              <PropertyRef Name="OrdenStatusId" />
+            </Principal>
+            <Dependent Role="Tbl_DetalleCompra">
+              <PropertyRef Name="IdOrdenStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Detal__IdUsu__6EF57B66">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Tbl_DetalleCompra" Type="Self.Tbl_DetalleCompra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tbl_DetalleCompra">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_image__IdPro__440B1D61">
+          <End Role="Tbl_Producto" Type="Self.Tbl_Producto" Multiplicity="0..1" />
+          <End Role="Tbl_imagen" Type="Self.Tbl_imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Producto">
+              <PropertyRef Name="ProductoId" />
+            </Principal>
+            <Dependent Role="Tbl_imagen">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Produ__IdCat__403A8C7D">
+          <End Role="Tbl_Categoria" Type="Self.Tbl_Categoria" Multiplicity="0..1" />
+          <End Role="Tbl_Producto" Type="Self.Tbl_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Categoria">
+              <PropertyRef Name="CategoriaId" />
+            </Principal>
+            <Dependent Role="Tbl_Producto">
+              <PropertyRef Name="IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Produ__IdSub__3F466844">
+          <End Role="Tbl_SubCategoria" Type="Self.Tbl_SubCategoria" Multiplicity="0..1" />
+          <End Role="Tbl_Producto" Type="Self.Tbl_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_SubCategoria">
+              <PropertyRef Name="IdSubCategoria" />
+            </Principal>
+            <Dependent Role="Tbl_Producto">
+              <PropertyRef Name="IdSubCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Produ__Prove__412EB0B6">
+          <End Role="Tbl_Proveedor" Type="Self.Tbl_Proveedor" Multiplicity="0..1" />
+          <End Role="Tbl_Producto" Type="Self.Tbl_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Proveedor">
+              <PropertyRef Name="ProveedorId" />
+            </Principal>
+            <Dependent Role="Tbl_Producto">
+              <PropertyRef Name="ProveedorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_SubCa__Categ__398D8EEE">
+          <End Role="Tbl_Categoria" Type="Self.Tbl_Categoria" Multiplicity="0..1" />
+          <End Role="Tbl_SubCategoria" Type="Self.Tbl_SubCategoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Categoria">
+              <PropertyRef Name="CategoriaId" />
+            </Principal>
+            <Dependent Role="Tbl_SubCategoria">
+              <PropertyRef Name="CategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="GetBySearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="search" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="dbTiendaOnlineBicicletasModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Carro" EntityType="Self.Tbl_Carro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_CarroProducto" EntityType="Self.Tbl_CarroProducto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Categoria" EntityType="Self.Tbl_Categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_DetalleCompra" EntityType="Self.Tbl_DetalleCompra" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_imagen" EntityType="Self.Tbl_imagen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_OrdenStatus" EntityType="Self.Tbl_OrdenStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Producto" EntityType="Self.Tbl_Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Proveedor" EntityType="Self.Tbl_Proveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_SubCategoria" EntityType="Self.Tbl_SubCategoria" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Tbl_Carro__IdCar__693CA210" Association="Self.FK__Tbl_Carro__IdCar__693CA210">
+            <End Role="Tbl_Carro" EntitySet="Tbl_Carro" />
+            <End Role="Tbl_CarroProducto" EntitySet="Tbl_CarroProducto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Carro__IdUsu__628FA481" Association="Self.FK__Tbl_Carro__IdUsu__628FA481">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Tbl_Carro" EntitySet="Tbl_Carro" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Carro__Produ__6A30C649" Association="Self.FK__Tbl_Carro__Produ__6A30C649">
+            <End Role="Tbl_Producto" EntitySet="Tbl_Producto" />
+            <End Role="Tbl_CarroProducto" EntitySet="Tbl_CarroProducto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Detal__IdCar__6FE99F9F" Association="Self.FK__Tbl_Detal__IdCar__6FE99F9F">
+            <End Role="Tbl_Carro" EntitySet="Tbl_Carro" />
+            <End Role="Tbl_DetalleCompra" EntitySet="Tbl_DetalleCompra" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Detal__IdOrd__70DDC3D8" Association="Self.FK__Tbl_Detal__IdOrd__70DDC3D8">
+            <End Role="Tbl_OrdenStatus" EntitySet="Tbl_OrdenStatus" />
+            <End Role="Tbl_DetalleCompra" EntitySet="Tbl_DetalleCompra" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Detal__IdUsu__6EF57B66" Association="Self.FK__Tbl_Detal__IdUsu__6EF57B66">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Tbl_DetalleCompra" EntitySet="Tbl_DetalleCompra" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_image__IdPro__440B1D61" Association="Self.FK__Tbl_image__IdPro__440B1D61">
+            <End Role="Tbl_Producto" EntitySet="Tbl_Producto" />
+            <End Role="Tbl_imagen" EntitySet="Tbl_imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Produ__IdCat__403A8C7D" Association="Self.FK__Tbl_Produ__IdCat__403A8C7D">
+            <End Role="Tbl_Categoria" EntitySet="Tbl_Categoria" />
+            <End Role="Tbl_Producto" EntitySet="Tbl_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Produ__IdSub__3F466844" Association="Self.FK__Tbl_Produ__IdSub__3F466844">
+            <End Role="Tbl_SubCategoria" EntitySet="Tbl_SubCategoria" />
+            <End Role="Tbl_Producto" EntitySet="Tbl_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Produ__Prove__412EB0B6" Association="Self.FK__Tbl_Produ__Prove__412EB0B6">
+            <End Role="Tbl_Proveedor" EntitySet="Tbl_Proveedor" />
+            <End Role="Tbl_Producto" EntitySet="Tbl_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_SubCa__Categ__398D8EEE" Association="Self.FK__Tbl_SubCa__Categ__398D8EEE">
+            <End Role="Tbl_Categoria" EntitySet="Tbl_Categoria" />
+            <End Role="Tbl_SubCategoria" EntitySet="Tbl_SubCategoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbTiendaOnlineBicicletasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="Tbl_Carro" Relationship="Self.FK__Tbl_Carro__IdUsu__628FA481" FromRole="AspNetUsers" ToRole="Tbl_Carro" />
+          <NavigationProperty Name="Tbl_DetalleCompra" Relationship="Self.FK__Tbl_Detal__IdUsu__6EF57B66" FromRole="AspNetUsers" ToRole="Tbl_DetalleCompra" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Carro">
+          <Key>
+            <PropertyRef Name="CarroId" />
+          </Key>
+          <Property Name="CarroId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__Tbl_Carro__IdUsu__628FA481" FromRole="Tbl_Carro" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Tbl_CarroProducto" Relationship="Self.FK__Tbl_Carro__IdCar__693CA210" FromRole="Tbl_Carro" ToRole="Tbl_CarroProducto" />
+          <NavigationProperty Name="Tbl_DetalleCompra" Relationship="Self.FK__Tbl_Detal__IdCar__6FE99F9F" FromRole="Tbl_Carro" ToRole="Tbl_DetalleCompra" />
+        </EntityType>
+        <EntityType Name="Tbl_CarroProducto">
+          <Key>
+            <PropertyRef Name="IdList" />
+          </Key>
+          <Property Name="IdList" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCarro" Type="Int32" Nullable="false" />
+          <Property Name="ProductoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tbl_Carro" Relationship="Self.FK__Tbl_Carro__IdCar__693CA210" FromRole="Tbl_CarroProducto" ToRole="Tbl_Carro" />
+          <NavigationProperty Name="Tbl_Producto" Relationship="Self.FK__Tbl_Carro__Produ__6A30C649" FromRole="Tbl_CarroProducto" ToRole="Tbl_Producto" />
+        </EntityType>
+        <EntityType Name="Tbl_Categoria">
+          <Key>
+            <PropertyRef Name="CategoriaId" />
+          </Key>
+          <Property Name="CategoriaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCategoria" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DescripcionCategoria" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <NavigationProperty Name="Tbl_Producto" Relationship="Self.FK__Tbl_Produ__IdCat__403A8C7D" FromRole="Tbl_Categoria" ToRole="Tbl_Producto" />
+          <NavigationProperty Name="Tbl_SubCategoria" Relationship="Self.FK__Tbl_SubCa__Categ__398D8EEE" FromRole="Tbl_Categoria" ToRole="Tbl_SubCategoria" />
+        </EntityType>
+        <EntityType Name="Tbl_DetalleCompra">
+          <Key>
+            <PropertyRef Name="DetalleCompraId" />
+          </Key>
+          <Property Name="DetalleCompraId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Direccion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Pais" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoPostal" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Monto" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TipoPago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdUsuario" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IdCarrito" Type="Int32" />
+          <Property Name="IdOrdenStatus" Type="Int32" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__Tbl_Detal__IdUsu__6EF57B66" FromRole="Tbl_DetalleCompra" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Tbl_Carro" Relationship="Self.FK__Tbl_Detal__IdCar__6FE99F9F" FromRole="Tbl_DetalleCompra" ToRole="Tbl_Carro" />
+          <NavigationProperty Name="Tbl_OrdenStatus" Relationship="Self.FK__Tbl_Detal__IdOrd__70DDC3D8" FromRole="Tbl_DetalleCompra" ToRole="Tbl_OrdenStatus" />
+        </EntityType>
+        <EntityType Name="Tbl_imagen">
+          <Key>
+            <PropertyRef Name="IdImagenes" />
+          </Key>
+          <Property Name="IdImagenes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DirImagen" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IdProducto" Type="Int32" />
+          <NavigationProperty Name="Tbl_Producto" Relationship="Self.FK__Tbl_image__IdPro__440B1D61" FromRole="Tbl_imagen" ToRole="Tbl_Producto" />
+        </EntityType>
+        <EntityType Name="Tbl_OrdenStatus">
+          <Key>
+            <PropertyRef Name="OrdenStatusId" />
+          </Key>
+          <Property Name="OrdenStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrdenStatus" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_DetalleCompra" Relationship="Self.FK__Tbl_Detal__IdOrd__70DDC3D8" FromRole="Tbl_OrdenStatus" ToRole="Tbl_DetalleCompra" />
+        </EntityType>
+        <EntityType Name="Tbl_Producto">
+          <Key>
+            <PropertyRef Name="ProductoId" />
+          </Key>
+          <Property Name="ProductoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreProducto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Cantidad" Type="Int32" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="Precio" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Talla" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProveedorId" Type="Int32" />
+          <Property Name="IdSubCategoria" Type="Int32" />
+          <Property Name="IdCategoria" Type="Int32" />
+          <NavigationProperty Name="Tbl_CarroProducto" Relationship="Self.FK__Tbl_Carro__Produ__6A30C649" FromRole="Tbl_Producto" ToRole="Tbl_CarroProducto" />
+          <NavigationProperty Name="Tbl_Categoria" Relationship="Self.FK__Tbl_Produ__IdCat__403A8C7D" FromRole="Tbl_Producto" ToRole="Tbl_Categoria" />
+          <NavigationProperty Name="Tbl_imagen" Relationship="Self.FK__Tbl_image__IdPro__440B1D61" FromRole="Tbl_Producto" ToRole="Tbl_imagen" />
+          <NavigationProperty Name="Tbl_SubCategoria" Relationship="Self.FK__Tbl_Produ__IdSub__3F466844" FromRole="Tbl_Producto" ToRole="Tbl_SubCategoria" />
+          <NavigationProperty Name="Tbl_Proveedor" Relationship="Self.FK__Tbl_Produ__Prove__412EB0B6" FromRole="Tbl_Producto" ToRole="Tbl_Proveedor" />
+        </EntityType>
+        <EntityType Name="Tbl_Proveedor">
+          <Key>
+            <PropertyRef Name="ProveedorId" />
+          </Key>
+          <Property Name="ProveedorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_Producto" Relationship="Self.FK__Tbl_Produ__Prove__412EB0B6" FromRole="Tbl_Proveedor" ToRole="Tbl_Producto" />
+        </EntityType>
+        <EntityType Name="Tbl_SubCategoria">
+          <Key>
+            <PropertyRef Name="IdSubCategoria" />
+          </Key>
+          <Property Name="IdSubCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreSubCategoria" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DescripcionSubCategoria" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CategoriaId" Type="Int32" />
+          <NavigationProperty Name="Tbl_Categoria" Relationship="Self.FK__Tbl_SubCa__Categ__398D8EEE" FromRole="Tbl_SubCategoria" ToRole="Tbl_Categoria" />
+          <NavigationProperty Name="Tbl_Producto" Relationship="Self.FK__Tbl_Produ__IdSub__3F466844" FromRole="Tbl_SubCategoria" ToRole="Tbl_Producto" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Carro__IdUsu__628FA481">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Tbl_Carro" Type="Self.Tbl_Carro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tbl_Carro">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Detal__IdUsu__6EF57B66">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Tbl_DetalleCompra" Type="Self.Tbl_DetalleCompra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tbl_DetalleCompra">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Carro__IdCar__693CA210">
+          <End Role="Tbl_Carro" Type="Self.Tbl_Carro" Multiplicity="1" />
+          <End Role="Tbl_CarroProducto" Type="Self.Tbl_CarroProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Carro">
+              <PropertyRef Name="CarroId" />
+            </Principal>
+            <Dependent Role="Tbl_CarroProducto">
+              <PropertyRef Name="IdCarro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Detal__IdCar__6FE99F9F">
+          <End Role="Tbl_Carro" Type="Self.Tbl_Carro" Multiplicity="0..1" />
+          <End Role="Tbl_DetalleCompra" Type="Self.Tbl_DetalleCompra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Carro">
+              <PropertyRef Name="CarroId" />
+            </Principal>
+            <Dependent Role="Tbl_DetalleCompra">
+              <PropertyRef Name="IdCarrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Carro__Produ__6A30C649">
+          <End Role="Tbl_Producto" Type="Self.Tbl_Producto" Multiplicity="1" />
+          <End Role="Tbl_CarroProducto" Type="Self.Tbl_CarroProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Producto">
+              <PropertyRef Name="ProductoId" />
+            </Principal>
+            <Dependent Role="Tbl_CarroProducto">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Produ__IdCat__403A8C7D">
+          <End Role="Tbl_Categoria" Type="Self.Tbl_Categoria" Multiplicity="0..1" />
+          <End Role="Tbl_Producto" Type="Self.Tbl_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Categoria">
+              <PropertyRef Name="CategoriaId" />
+            </Principal>
+            <Dependent Role="Tbl_Producto">
+              <PropertyRef Name="IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_SubCa__Categ__398D8EEE">
+          <End Role="Tbl_Categoria" Type="Self.Tbl_Categoria" Multiplicity="0..1" />
+          <End Role="Tbl_SubCategoria" Type="Self.Tbl_SubCategoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Categoria">
+              <PropertyRef Name="CategoriaId" />
+            </Principal>
+            <Dependent Role="Tbl_SubCategoria">
+              <PropertyRef Name="CategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Detal__IdOrd__70DDC3D8">
+          <End Role="Tbl_OrdenStatus" Type="Self.Tbl_OrdenStatus" Multiplicity="0..1" />
+          <End Role="Tbl_DetalleCompra" Type="Self.Tbl_DetalleCompra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_OrdenStatus">
+              <PropertyRef Name="OrdenStatusId" />
+            </Principal>
+            <Dependent Role="Tbl_DetalleCompra">
+              <PropertyRef Name="IdOrdenStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_image__IdPro__440B1D61">
+          <End Role="Tbl_Producto" Type="Self.Tbl_Producto" Multiplicity="0..1" />
+          <End Role="Tbl_imagen" Type="Self.Tbl_imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Producto">
+              <PropertyRef Name="ProductoId" />
+            </Principal>
+            <Dependent Role="Tbl_imagen">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Produ__IdSub__3F466844">
+          <End Role="Tbl_SubCategoria" Type="Self.Tbl_SubCategoria" Multiplicity="0..1" />
+          <End Role="Tbl_Producto" Type="Self.Tbl_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_SubCategoria">
+              <PropertyRef Name="IdSubCategoria" />
+            </Principal>
+            <Dependent Role="Tbl_Producto">
+              <PropertyRef Name="IdSubCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Produ__Prove__412EB0B6">
+          <End Role="Tbl_Proveedor" Type="Self.Tbl_Proveedor" Multiplicity="0..1" />
+          <End Role="Tbl_Producto" Type="Self.Tbl_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Proveedor">
+              <PropertyRef Name="ProveedorId" />
+            </Principal>
+            <Dependent Role="Tbl_Producto">
+              <PropertyRef Name="ProveedorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="dbTiendaOnlineBicicletasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tbl_Carro" EntityType="Self.Tbl_Carro" />
+          <EntitySet Name="Tbl_CarroProducto" EntityType="Self.Tbl_CarroProducto" />
+          <EntitySet Name="Tbl_Categoria" EntityType="Self.Tbl_Categoria" />
+          <EntitySet Name="Tbl_DetalleCompra" EntityType="Self.Tbl_DetalleCompra" />
+          <EntitySet Name="Tbl_imagen" EntityType="Self.Tbl_imagen" />
+          <EntitySet Name="Tbl_OrdenStatus" EntityType="Self.Tbl_OrdenStatus" />
+          <EntitySet Name="Tbl_Producto" EntityType="Self.Tbl_Producto" />
+          <EntitySet Name="Tbl_Proveedor" EntityType="Self.Tbl_Proveedor" />
+          <EntitySet Name="Tbl_SubCategoria" EntityType="Self.Tbl_SubCategoria" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Carro__IdUsu__628FA481" Association="Self.FK__Tbl_Carro__IdUsu__628FA481">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Tbl_Carro" EntitySet="Tbl_Carro" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Detal__IdUsu__6EF57B66" Association="Self.FK__Tbl_Detal__IdUsu__6EF57B66">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Tbl_DetalleCompra" EntitySet="Tbl_DetalleCompra" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Carro__IdCar__693CA210" Association="Self.FK__Tbl_Carro__IdCar__693CA210">
+            <End Role="Tbl_Carro" EntitySet="Tbl_Carro" />
+            <End Role="Tbl_CarroProducto" EntitySet="Tbl_CarroProducto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Detal__IdCar__6FE99F9F" Association="Self.FK__Tbl_Detal__IdCar__6FE99F9F">
+            <End Role="Tbl_Carro" EntitySet="Tbl_Carro" />
+            <End Role="Tbl_DetalleCompra" EntitySet="Tbl_DetalleCompra" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Carro__Produ__6A30C649" Association="Self.FK__Tbl_Carro__Produ__6A30C649">
+            <End Role="Tbl_Producto" EntitySet="Tbl_Producto" />
+            <End Role="Tbl_CarroProducto" EntitySet="Tbl_CarroProducto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Produ__IdCat__403A8C7D" Association="Self.FK__Tbl_Produ__IdCat__403A8C7D">
+            <End Role="Tbl_Categoria" EntitySet="Tbl_Categoria" />
+            <End Role="Tbl_Producto" EntitySet="Tbl_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_SubCa__Categ__398D8EEE" Association="Self.FK__Tbl_SubCa__Categ__398D8EEE">
+            <End Role="Tbl_Categoria" EntitySet="Tbl_Categoria" />
+            <End Role="Tbl_SubCategoria" EntitySet="Tbl_SubCategoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Detal__IdOrd__70DDC3D8" Association="Self.FK__Tbl_Detal__IdOrd__70DDC3D8">
+            <End Role="Tbl_OrdenStatus" EntitySet="Tbl_OrdenStatus" />
+            <End Role="Tbl_DetalleCompra" EntitySet="Tbl_DetalleCompra" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_image__IdPro__440B1D61" Association="Self.FK__Tbl_image__IdPro__440B1D61">
+            <End Role="Tbl_Producto" EntitySet="Tbl_Producto" />
+            <End Role="Tbl_imagen" EntitySet="Tbl_imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Produ__IdSub__3F466844" Association="Self.FK__Tbl_Produ__IdSub__3F466844">
+            <End Role="Tbl_SubCategoria" EntitySet="Tbl_SubCategoria" />
+            <End Role="Tbl_Producto" EntitySet="Tbl_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Produ__Prove__412EB0B6" Association="Self.FK__Tbl_Produ__Prove__412EB0B6">
+            <End Role="Tbl_Proveedor" EntitySet="Tbl_Proveedor" />
+            <End Role="Tbl_Producto" EntitySet="Tbl_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <FunctionImport Name="GetBySearch" ReturnType="Collection(dbTiendaOnlineBicicletasModel.GetBySearch_Result)">
+            <Parameter Name="search" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(dbTiendaOnlineBicicletasModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(dbTiendaOnlineBicicletasModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="GetBySearch_Result">
+          <Property Type="Int32" Name="ProductoId" Nullable="false" />
+          <Property Type="String" Name="NombreProducto" Nullable="true" MaxLength="500" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+          <Property Type="Boolean" Name="IsDelete" Nullable="true" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="DateTime" Name="FechaCreacion" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="FechaModificacion" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="Precio" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Talla" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Color" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="ProveedorId" Nullable="true" />
+          <Property Type="Int32" Name="IdSubCategoria" Nullable="true" />
+          <Property Type="Int32" Name="IdCategoria" Nullable="true" />
+          <Property Type="Int32" Name="IdSubCategoria1" Nullable="true" />
+          <Property Type="String" Name="NombreSubCategoria" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DescripcionSubCategoria" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="CategoriaId" Nullable="true" />
+          <Property Type="Int32" Name="CategoriaId1" Nullable="true" />
+          <Property Type="String" Name="NombreCategoria" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DescripcionCategoria" Nullable="true" MaxLength="500" />
+          <Property Type="Boolean" Name="IsActive1" Nullable="true" />
+          <Property Type="Boolean" Name="IsDelete1" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbTiendaOnlineBicicletasModelStoreContainer" CdmEntityContainer="dbTiendaOnlineBicicletasEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="dbTiendaOnlineBicicletasModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="dbTiendaOnlineBicicletasModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="dbTiendaOnlineBicicletasModel.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="dbTiendaOnlineBicicletasModel.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="dbTiendaOnlineBicicletasModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="dbTiendaOnlineBicicletasModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Carro">
+            <EntityTypeMapping TypeName="dbTiendaOnlineBicicletasModel.Tbl_Carro">
+              <MappingFragment StoreEntitySet="Tbl_Carro">
+                <ScalarProperty Name="CarroId" ColumnName="CarroId" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_CarroProducto">
+            <EntityTypeMapping TypeName="dbTiendaOnlineBicicletasModel.Tbl_CarroProducto">
+              <MappingFragment StoreEntitySet="Tbl_CarroProducto">
+                <ScalarProperty Name="IdList" ColumnName="IdList" />
+                <ScalarProperty Name="IdCarro" ColumnName="IdCarro" />
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Categoria">
+            <EntityTypeMapping TypeName="dbTiendaOnlineBicicletasModel.Tbl_Categoria">
+              <MappingFragment StoreEntitySet="Tbl_Categoria">
+                <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
+                <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+                <ScalarProperty Name="DescripcionCategoria" ColumnName="DescripcionCategoria" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_DetalleCompra">
+            <EntityTypeMapping TypeName="dbTiendaOnlineBicicletasModel.Tbl_DetalleCompra">
+              <MappingFragment StoreEntitySet="Tbl_DetalleCompra">
+                <ScalarProperty Name="DetalleCompraId" ColumnName="DetalleCompraId" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="TipoPago" ColumnName="TipoPago" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdCarrito" ColumnName="IdCarrito" />
+                <ScalarProperty Name="IdOrdenStatus" ColumnName="IdOrdenStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_imagen">
+            <EntityTypeMapping TypeName="dbTiendaOnlineBicicletasModel.Tbl_imagen">
+              <MappingFragment StoreEntitySet="Tbl_imagen">
+                <ScalarProperty Name="IdImagenes" ColumnName="IdImagenes" />
+                <ScalarProperty Name="NombreImagen" ColumnName="NombreImagen" />
+                <ScalarProperty Name="DirImagen" ColumnName="DirImagen" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_OrdenStatus">
+            <EntityTypeMapping TypeName="dbTiendaOnlineBicicletasModel.Tbl_OrdenStatus">
+              <MappingFragment StoreEntitySet="Tbl_OrdenStatus">
+                <ScalarProperty Name="OrdenStatusId" ColumnName="OrdenStatusId" />
+                <ScalarProperty Name="OrdenStatus" ColumnName="OrdenStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Producto">
+            <EntityTypeMapping TypeName="dbTiendaOnlineBicicletasModel.Tbl_Producto">
+              <MappingFragment StoreEntitySet="Tbl_Producto">
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Talla" ColumnName="Talla" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="ProveedorId" ColumnName="ProveedorId" />
+                <ScalarProperty Name="IdSubCategoria" ColumnName="IdSubCategoria" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Proveedor">
+            <EntityTypeMapping TypeName="dbTiendaOnlineBicicletasModel.Tbl_Proveedor">
+              <MappingFragment StoreEntitySet="Tbl_Proveedor">
+                <ScalarProperty Name="ProveedorId" ColumnName="ProveedorId" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_SubCategoria">
+            <EntityTypeMapping TypeName="dbTiendaOnlineBicicletasModel.Tbl_SubCategoria">
+              <MappingFragment StoreEntitySet="Tbl_SubCategoria">
+                <ScalarProperty Name="IdSubCategoria" ColumnName="IdSubCategoria" />
+                <ScalarProperty Name="NombreSubCategoria" ColumnName="NombreSubCategoria" />
+                <ScalarProperty Name="DescripcionSubCategoria" ColumnName="DescripcionSubCategoria" />
+                <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="dbTiendaOnlineBicicletasModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="GetBySearch" FunctionName="dbTiendaOnlineBicicletasModel.Store.GetBySearch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbTiendaOnlineBicicletasModel.GetBySearch_Result">
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Talla" ColumnName="Talla" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="ProveedorId" ColumnName="ProveedorId" />
+                <ScalarProperty Name="IdSubCategoria" ColumnName="IdSubCategoria" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="IdSubCategoria1" ColumnName="IdSubCategoria1" />
+                <ScalarProperty Name="NombreSubCategoria" ColumnName="NombreSubCategoria" />
+                <ScalarProperty Name="DescripcionSubCategoria" ColumnName="DescripcionSubCategoria" />
+                <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
+                <ScalarProperty Name="CategoriaId1" ColumnName="CategoriaId1" />
+                <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+                <ScalarProperty Name="DescripcionCategoria" ColumnName="DescripcionCategoria" />
+                <ScalarProperty Name="IsActive1" ColumnName="IsActive1" />
+                <ScalarProperty Name="IsDelete1" ColumnName="IsDelete1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="dbTiendaOnlineBicicletasModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="dbTiendaOnlineBicicletasModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="dbTiendaOnlineBicicletasModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="dbTiendaOnlineBicicletasModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbTiendaOnlineBicicletasModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="dbTiendaOnlineBicicletasModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbTiendaOnlineBicicletasModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="dbTiendaOnlineBicicletasModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="dbTiendaOnlineBicicletasModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

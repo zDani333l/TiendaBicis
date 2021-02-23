@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNet.Identity
+
+
+<div class="header__top">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
+                <p>Colombia, Bogota D.C  -  TEL: 300-530-77-76 - 793-98-21</p>
+            </div>
+            @if (Request.IsAuthenticated)
+            {
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
+                        <div class="header__actions">
+                            <div class="btn-group ps-dropdown">
+                                <a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hola @User.Identity.GetUserName()!<i class="fa fa-angle-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Account/Manage" title="Manage">Manage</a></li>
+                                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                }
+            else
+                {
+                <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
+                    <div class="header__actions">
+                        <a id="registerLink" href="/Account/Register">Registrarse</a>
+                        <a id="loginLink" href="/Account/Login">Iniciar sesión</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

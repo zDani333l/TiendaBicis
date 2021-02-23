@@ -1,0 +1,32 @@
+﻿@using TiendaWebBicicletas.Models
+@model List<StockViewModels>
+@{
+    ViewBag.Title = "ErrorStock";
+    Layout = null;
+}
+
+<h1>
+    Lo sentimos, tenemos problemas de stock
+</h1>
+
+@if (Model.Count > 1)
+{
+    <h2>Los siguientes productos ya no tienen stock disponible y los hemos eliminado de tu carrito</h2>
+    @foreach (var item in Model)
+    {
+        <h2>@item.nombrePro</h2>
+    }
+}
+else
+{
+    <h2>
+        El producto @Model[0].nombrePro ya no tiene stock disponible y lo hemos eliminado de tu carrito
+    </h2>
+}
+
+<a href="/Home/Index">Ir a pagina de inicio</a>
+<a href="/Compra/Checkout">Ir a checkOut</a>
+
+
+
+

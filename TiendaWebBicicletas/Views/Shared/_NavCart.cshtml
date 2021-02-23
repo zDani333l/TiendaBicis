@@ -1,0 +1,40 @@
+﻿@using TiendaWebBicicletas.Models
+@{
+    int check = 1;
+    double totalArticulos = 0;
+}
+<div class="ps-cart">
+
+    @if (Session["cart"] != null)
+    {
+        List<Articulo> cart = (List<Articulo>)Session["cart"];
+        <a class="ps-cart__toggle" href="#"><span><i>@cart.Count</i></span><i class="ps-icon-shopping-cart"></i></a>
+        <div class="ps-cart__listing">
+            <div class="ps-cart__content">
+                @foreach (var item in cart)
+                {
+                    var img = item.Producto.Tbl_imagen.ToList();
+                    item.ResultadoPrecio();
+                    <div class="ps-cart-item">
+                        <a class="ps-cart-item__close" href="/Compra/EliminarCarrito?productId=@item.Producto.ProductoId&search=@ViewBag.buscar&pag=@ViewBag.pag"></a> @*QUITAR DE LA LISTA EL PRODUCTO*@
+                        <div class="ps-cart-item__thumbnail"><a href="/Producto/DetalleProducto?check=@check"></a><img src="/ImagenesProductos/@img[0].NombreImagen" alt=""></div>
+                        <div class="ps-cart-item__content">
+                            <a class="ps-cart-item__title" href="/Producto/DetalleProducto?check=@check">@item.Producto.NombreProducto</a>
+                            <p><span>Cantidad:<i>@item.Cantidad</i></span><span>Total:<i>@item.Precio</i></span></p>
+                        </div>
+                    </div>
+                    totalArticulos += item.Precio;
+                }
+                <div class="ps-cart__total">
+                    <p>Numero de articulos:<span>@cart.Count</span></p>
+                    <p>Precio total:<span>$ @totalArticulos</span></p>
+                </div>
+                <div class="ps-cart__footer"><a class="ps-btn" href="/Compra/CheckOut">Pagar e irse<i class="ps-icon-arrow-left"></i></a></div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <a class="ps-cart__toggle" href="#"><span><i>0</i></span><i class="ps-icon-shopping-cart"></i></a>
+    }
+</div>

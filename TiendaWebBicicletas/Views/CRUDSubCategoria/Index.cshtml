@@ -1,0 +1,46 @@
+﻿@model IEnumerable<TiendaWebBicicletas.DAL.Tbl_SubCategoria>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreSubCategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescripcionSubCategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tbl_Categoria.NombreCategoria)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreSubCategoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescripcionSubCategoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tbl_Categoria.NombreCategoria)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdSubCategoria }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdSubCategoria }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdSubCategoria })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,145 @@
+﻿@using TiendaWebBicicletas.Models;
+@using TiendaWebBicicletas.DAL;
+@model PaginadorGenerico<Tbl_Producto>
+@{
+    ViewBag.Title = "ListaProductos";
+    Layout = "~/Views/Shared/_LayoutTienda.cshtml";
+}
+
+<!--Funcionalidad de paginas paginador-->
+@{
+    int Inicial = 1;
+    var radio = 2;
+    var CantidadMaximaDePaginas = radio * 2 + 1;
+    int Final = (Model.TotalPaginas > CantidadMaximaDePaginas ? CantidadMaximaDePaginas : Model.TotalPaginas);
+    if (Model.PaginaActual > radio + 1)
+    {
+        Inicial = Model.PaginaActual - radio;
+        if (Model.TotalPaginas > Model.PaginaActual + radio)
+        {
+            Final = Model.PaginaActual + radio;
+        }
+        else
+        {
+            Final = Model.TotalPaginas;
+        }
+    }
+}
+
+<main class="ps-main">
+    <div class="ps-products-wrap pt-80 pb-80">
+        <div class="ps-products" data-mh="product-listing">
+            <div class="ps-product-action">
+                <div class="ps-pagination">
+                    <ul class="pagination">
+                        @if (Model.PaginaActual == 1)
+                        {
+                            <li class="disabled"><a href="/Home/ListaProductos?pagina=1"><i class="fa fa-angle-left"></i></a></li>
+                        }
+                        else
+                        {
+                            int p = Model.PaginaActual - 1; ;
+                            <li><a href="/Home/ListaProductos?pagina=@p"><i class="fa fa-angle-left"></i></a></li>
+                        }
+                        @for (int i = Inicial; i <= Final; i++)
+                        {
+                            if (i == Model.PaginaActual)
+                            {
+                                <li class="active"><a href="/Home/ListaProductos?pagina=@i">@i.ToString()</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="/Home/ListaProductos?pagina=@i">@i.ToString()</a></li>
+                            }
+                        }
+                        @if (Model.PaginaActual == Model.TotalPaginas)
+                        {
+                            <li><a href="/Home/ListaProductos?pagina=@Model.TotalPaginas"><i class="fa fa-angle-right"></i></a></li>
+                        }
+                        else
+                        {
+                            int x = Model.PaginaActual + 1;
+                            <li><a href="/Home/ListaProductos?pagina=@x"><i class="fa fa-angle-right"></i></a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="ps-product__columns">
+                @foreach (var item in Model.Resultado.ToList())
+                {
+                    var listImagenes = item.Tbl_imagen.ToList();
+                    <div class="ps-product__column">
+                        <div class="ps-shoe mb-30">
+                            <div class="ps-shoe__thumbnail">
+                                <a class="ps-shoe__favorite" href="/Compra/AgregarCarrito?productId=@item.ProductoId&search=@ViewBag.buscar&pag=@ViewBag.pag"><i class="ps-icon-shopping-cart"></i></a>
+                                <img src="/ImagenesProductos/@listImagenes[0].NombreImagen " alt="">
+                                <a class="ps-shoe__overlay" href="/Home/DetalleProducto?id=@item.ProductoId&buscar=@ViewBag.buscar&pagina=@ViewBag.pag"></a>
+                            </div>
+
+                            <div class="ps-shoe__content">
+                                <div class="ps-shoe__variants">
+                                    <div class="ps-shoe__variant normal">
+                                        @for (int i = 0; i < listImagenes.Count; i++)
+                                        {
+                                            if (i == 5)
+                                            {
+                                                break;
+                                            }
+
+                                            <img src="/ImagenesProductos/@listImagenes[i].NombreImagen" alt="">
+                                        }
+                                    </div>
+                                </div>
+                                <div class="ps-shoe__detail">
+                                    <a class="ps-shoe__name" href="/Home/DetalleProducto?id=@item.ProductoId&buscar=@ViewBag.buscar&pagina=@ViewBag.pag">@item.NombreProducto</a>
+                                    <p class="ps-shoe__categories">
+                                        <a href="/Home/ListaProductos?buscar=@item.Tbl_Categoria.NombreCategoria">@item.Tbl_Categoria.NombreCategoria</a>,<a href="/Home/ListaProductos?buscar=@item.Tbl_SubCategoria.NombreSubCategoria">@item.Tbl_SubCategoria.NombreSubCategoria</a>
+                                    </p>
+                                    <span class="ps-shoe__price"> $ @item.Precio</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+            <div class="ps-product-action">
+                <div class="ps-pagination">
+                    <ul class="pagination">
+                        @if (Model.PaginaActual == 1)
+                        {
+                            <li class="disabled"><a href="/Home/ListaProductos?pagina=1"><i class="fa fa-angle-left"></i></a></li>
+                        }
+                        else
+                        {
+                            int p = Model.PaginaActual - 1; ;
+                            <li><a href="/Home/ListaProductos?pagina=@p"><i class="fa fa-angle-left"></i></a></li>
+                        }
+                        @for (int i = Inicial; i <= Final; i++)
+                        {
+                            if (i == Model.PaginaActual)
+                            {
+                                <li class="active"><a href="/Home/ListaProductos?pagina=@i">@i.ToString()</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="/Home/ListaProductos?pagina=@i">@i.ToString()</a></li>
+                            }
+                        }
+                        @if (Model.PaginaActual == Model.TotalPaginas)
+                        {
+                            <li><a href="/Home/ListaProductos?pagina=@Model.TotalPaginas"><i class="fa fa-angle-right"></i></a></li>
+                        }
+                        else
+                        {
+                            int x = Model.PaginaActual + 1;
+                            <li><a href="/Home/ListaProductos?pagina=@x"><i class="fa fa-angle-right"></i></a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

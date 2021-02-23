@@ -1,0 +1,88 @@
+﻿@model IEnumerable<TiendaWebBicicletas.DAL.Tbl_DetalleCompra>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pais)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoPostal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Monto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoPago)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tbl_Carro.IdUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tbl_OrdenStatus.OrdenStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ciudad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pais)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodigoPostal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Monto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoPago)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUsers.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tbl_Carro.IdUsuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tbl_OrdenStatus.OrdenStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DetalleCompraId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DetalleCompraId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DetalleCompraId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,46 @@
+﻿@model TiendaWebBicicletas.DAL.Tbl_imagen
+@{
+    ViewBag.Title = "ModificarFoto";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>MoificarFoto</h2>
+
+<div class="card-body">
+    <div class="row mb-2 mb-xl-3">
+        <div class="col-auto ml-auto text-right mt-n1">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-transparent p-0 mt-1 mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="#">Admin</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="/CRUDProducto/Index">Producto</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="/CRUDProducto/Edit?id=@Model.IdProducto">Editar Producto</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        Editar Foto
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <p style="text-align: center; "> <img src="~/ImagenesProductos/@Model.NombreImagen" alt="imagen 3" width="200"></p>
+
+    @Html.BeginForm("ModificarFoto", "CRUDProducto", FormMethod.Post, new { enctype = "multipart/form-data" }){
+    <div>
+        <label>Id Imagen: </label>
+        <input type="text" name="id" id="id" value="@Model.IdImagenes">
+    </div>
+
+    <p>
+        Sube la nueva imagen:
+        <input type="file" id="Files" name="Files" multiple>
+    </p>
+    <input type="submit" value="Modificar Imagen">
+    }
+
+
+</div>

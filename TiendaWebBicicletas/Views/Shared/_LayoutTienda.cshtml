@@ -1,0 +1,122 @@
+﻿@using TiendaWebBicicletas.DAL
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="favicon.png" rel="icon">
+    <meta name="author" content="Nghia Minh Luong">
+    <meta name="keywords" content="Default Description">
+    <meta name="description" content="Default keyword">
+    <title>@ViewBag.Title - Bici Shop</title>
+    <!-- Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:300,400,700%7CMontserrat:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="~/Tienda/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Tienda/plugins/ps-icon/style.css">
+    <!-- CSS Library-->
+    <link rel="stylesheet" href="~/Tienda/plugins/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Tienda/plugins/owl-carousel/assets/owl.carousel.css">
+    <link rel="stylesheet" href="~/Tienda/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css">
+    <link rel="stylesheet" href="~/Tienda/plugins/slick/slick/slick.css">
+    <link rel="stylesheet" href="~/Tienda/plugins/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="~/Tienda/plugins/Magnific-Popup/dist/magnific-popup.css">
+    <link rel="stylesheet" href="~/Tienda/plugins/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="~/Tienda/plugins/revolution/css/settings.css">
+    <link rel="stylesheet" href="~/Tienda/plugins/revolution/css/layers.css">
+    <link rel="stylesheet" href="~/Tienda/plugins/revolution/css/navigation.css">
+    <!-- Custom-->
+    <link rel="stylesheet" href="~/Tienda/css/style.css">
+
+</head>
+
+<body>
+    <div class="header--sidebar"></div>
+    <header class="header">
+        @Html.Partial("_LoginPartial")
+        <nav class="navigation">
+            <div class="container-fluid">
+                <div class="navigation__column left">
+                    <div class="header__logo"><a class="ps-logo" href="/Home/Index"><img src="~/Tienda/images/logo.png" alt=""></a></div>
+                </div>
+                <div class="navigation__column center">
+                    
+                    <ul class="main-menu menu">
+                        <li class="menu-item menu-item-has-children dropdown">
+                            <a href="/Home/Index">Inicio</a>
+                        </li>
+                        @{
+                            string bus = "Bicicletas";
+                        }
+                        <li class="menu-item menu-item-has-children dropdown">
+                            <a href="/Home/ListaProductos?buscar=@bus">Bicicletas</a>
+                        </li>
+                        @{
+                            bus = "Accesorios";
+                        } 
+                        <li class="menu-item menu-item-has-children dropdown">
+                            <a href="/Home/ListaProductos?buscar=@bus">Accesorios</a>
+                        </li>
+                        @{ 
+                            bus = Ropa;
+                        }
+                        <li class="menu-item menu-item-has-children dropdown">
+                            <a href="/Home/ListaProducto?buscar=@bus">Ropa</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <div class="navigation__column right">
+                    <form class="ps-search--header" method="get" action="/Producto/ListaProductos">
+                        <input class="form-control" name="buscar" type="text" placeholder="Buscar Producto…">
+                        <button><i class="ps-icon-search"></i></button>
+                    </form>
+                    @Html.Partial("_NavCart")
+                    <div class="menu-toggle"><span></span></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="header-services">
+        <div class="ps-services owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="7000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
+            <p class="ps-service"><i class="ps-icon-money"></i><strong>Mejor calidad</strong>: Con nosotros tienes los mejores productos</p>
+            <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Envio gratis</strong>: Tendrás un pedido gratis con cada compra</p>
+            <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Servicio cliente</strong>: Comunicate con nosotros</p>
+        </div>
+    </div>
+    <div>@RenderBody()</div>
+
+    <!-- JS Library-->
+    <script type="text/javascript" src="~/Tienda/plugins/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/gmap3.min.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/imagesloaded.pkgd.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/jquery.matchHeight-min.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/slick/slick/slick.min.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/elevatezoom/jquery.elevatezoom.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx39JFH5nhxze1ZydH-Kl8xXM3OK4fvcg&amp;region=GB"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script type="text/javascript" src="~/Tienda/plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <!-- Custom scripts-->
+    <script type="text/javascript" src="~/Tienda/js/main.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
